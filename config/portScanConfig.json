@@ -1,0 +1,16 @@
+{
+  "threads": 5,
+  "timeoutSeconds": 1,
+  "portRangeStart" : 80,
+  "portRangeStop" : 90,
+  "ports": [
+    {
+      "desc": "HTTP",
+      "port": 80
+    },
+    {
+    "desc": "SSH",
+    "port": 22
+    }
+  ]
+}
