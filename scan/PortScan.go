@@ -20,6 +20,7 @@ type PortScanConfig struct {
 		Desc string `json:"desc"`
 		Port int    `json:"port"`
 	} `json:"ports"`
+	CloudflareIps []string `json:"cloudflareIps"`
 }
 
 // PortScanner struct for NewPortScanner function
@@ -29,6 +30,61 @@ type PortScanner struct {
 	threads int
 }
 
+func IsCloudflare(url string) bool {
+	var conf = portsFromConfig()
+	var err error
+
+	ipaddrs, err := net.LookupIP(url)
+	if err != nil {
+		panic(err)
+	}
+	if len(ipaddrs) < 1 {
+		panic("no ip for URL " + url)
+	}
+	for _, c := range conf.CloudflareIps {
+		if c == "" {
+			continue
+		}
+
+		hosts, err := hosts(c)
+		if err != nil {
+			continue
+		}
+
+		for _, host := range hosts {
+			if host == ipaddrs[0].String() {
+				return true
+			}
+		}
+	}
+	return false
+}
+func hosts(cidr string) ([]string, error) {
+	ip, ipnet, err := net.ParseCIDR(cidr)
+	if err != nil {
+		return nil, err
+	}
+	var ips []string
+	for ip := ip.Mask(ipnet.Mask); ipnet.Contains(ip); inc(ip) {
+		ips = append(ips, ip.String())
+	}
+
+	lenIPs := len(ips)
+	switch {
+	case lenIPs < 2:
+		return ips, nil
+	default:
+		return ips[1 : len(ips)-1], nil
+	}
+}
+func inc(ip net.IP) {
+	for j := len(ip) - 1; j >= 0; j-- {
+		ip[j]++
+		if ip[j] > 0 {
+			break
+		}
+	}
+}
 func StartPortScan(url string) []data.FoundPort {
 	var conf = portsFromConfig()
 	var err error

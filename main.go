@@ -5,6 +5,7 @@ import (
 	"SiteSecurityCheck/out"
 	"SiteSecurityCheck/scan"
 	"flag"
+	"github.com/schollz/progressbar/v3"
 )
 
 func main() {
@@ -27,9 +28,26 @@ func main() {
 	}
 
 	//start scanning
-	var res = data.ScanResult{}
+	var res = data.ScanResult{
+		ScanUrl:         websiteURL,
+		Tls:             data.TlsData{},
+		Server:          data.WebserverData{},
+		Cms:             data.CmsData{},
+		Headers:         []data.HeaderData{},
+		Vulnerabilities: []data.CveData{},
+		Ports:           []data.FoundPort{},
+		Miscellaneous:   data.MiscellaneousData{},
+	}
 	out.PrintScanTitle(websiteURL, format)
-	res.Ports = scan.StartPortScan(websiteURL)
+	var p = progressbar.Default(-1, "Checking for Cloudflare IPs...")
+	res.Miscellaneous.UseCloudflare = scan.IsCloudflare(websiteURL)
+	p.Finish()
+	if !res.Miscellaneous.UseCloudflare {
+
+		p = progressbar.Default(-1, "Executing portscan...")
+		res.Ports = scan.StartPortScan(websiteURL)
+		p.Finish()
+	}
 	//output result
 	out.PrintResult(res, format)
 
