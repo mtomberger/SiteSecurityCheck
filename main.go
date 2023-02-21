@@ -3,9 +3,9 @@ package main
 import (
 	"SiteSecurityCheck/data"
 	"SiteSecurityCheck/out"
-	"SiteSecurityCheck/scan"
 	"flag"
 	"github.com/schollz/progressbar/v3"
+	"net/url"
 )
 
 func main() {
@@ -20,13 +20,19 @@ func main() {
 	flag.StringVar((*string)(&format), "f", "human", "Format of the output. Available values: 'json'= JSON of the result, 'human'= human readable format")
 	flag.Parse()
 	if len(websiteURL) < 3 {
-		print("flag -u must be filled with a valid website URL. Use -h to get a list of all available flags")
+		out.Print("flag -u must be filled with a valid website URL. Use -h to get a list of all available flags")
 		return
 	}
 	if !out.CheckFormat(format) {
 		return
 	}
-
+	//validate url
+	url, err := url.Parse(websiteURL)
+	if err != nil {
+		out.Print("%s is not a valid url: " + err.Error())
+		return
+	}
+	domain := url.Hostname()
 	//start scanning
 	var res = data.ScanResult{
 		ScanUrl:         websiteURL,
@@ -40,14 +46,17 @@ func main() {
 	}
 	out.PrintScanTitle(websiteURL, format)
 	var p = progressbar.Default(-1, "Checking for Cloudflare IPs...")
-	res.Miscellaneous.UseCloudflare = scan.IsCloudflare(websiteURL)
+	//res.Miscellaneous.UseCloudflare = scan.IsCloudflare(websiteURL)
 	p.Finish()
 	if !res.Miscellaneous.UseCloudflare {
 
 		p = progressbar.Default(-1, "Executing portscan...")
-		res.Ports = scan.StartPortScan(websiteURL)
+		//res.Ports = scan.StartPortScan(domain)
 		p.Finish()
 	}
+	p = progressbar.Default(-1, "Getting Geolocation...")
+	//res.Miscellaneous = scan.FillHostInformation(domain, res.Miscellaneous, locationApiKey)
+	p.Finish()
 	//output result
 	out.PrintResult(res, format)
 

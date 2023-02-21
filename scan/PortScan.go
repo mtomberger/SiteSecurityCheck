@@ -30,10 +30,7 @@ type PortScanner struct {
 	threads int
 }
 
-func IsCloudflare(url string) bool {
-	var conf = portsFromConfig()
-	var err error
-
+func getIp(url string) string {
 	ipaddrs, err := net.LookupIP(url)
 	if err != nil {
 		panic(err)
@@ -41,6 +38,12 @@ func IsCloudflare(url string) bool {
 	if len(ipaddrs) < 1 {
 		panic("no ip for URL " + url)
 	}
+	return ipaddrs[0].String()
+}
+func IsCloudflare(url string) bool {
+	var conf = portsFromConfig()
+
+	ipaddr := getIp(url)
 	for _, c := range conf.CloudflareIps {
 		if c == "" {
 			continue
@@ -52,7 +55,7 @@ func IsCloudflare(url string) bool {
 		}
 
 		for _, host := range hosts {
-			if host == ipaddrs[0].String() {
+			if host == ipaddr {
 				return true
 			}
 		}
@@ -87,16 +90,7 @@ func inc(ip net.IP) {
 }
 func StartPortScan(url string) []data.FoundPort {
 	var conf = portsFromConfig()
-	var err error
-
-	ipaddrs, err := net.LookupIP(url)
-	if err != nil {
-		panic(err)
-	}
-	if len(ipaddrs) < 1 {
-		panic("no ip for URL " + url)
-	}
-	return scanHost(ipaddrs[0].String(), conf)
+	return scanHost(getIp(url), conf)
 }
 
 func portsFromConfig() PortScanConfig {
