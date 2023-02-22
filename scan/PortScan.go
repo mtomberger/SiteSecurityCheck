@@ -95,7 +95,7 @@ func StartPortScan(url string) []data.FoundPort {
 
 func portsFromConfig() PortScanConfig {
 	var ports PortScanConfig
-	source, err := os.ReadFile("config/portScanConfig.json")
+	source, err := os.ReadFile("config/scanConfig.json")
 	if err != nil {
 		panic(err)
 	}

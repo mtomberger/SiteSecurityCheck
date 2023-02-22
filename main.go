@@ -3,6 +3,7 @@ package main
 import (
 	"SiteSecurityCheck/data"
 	"SiteSecurityCheck/out"
+	"SiteSecurityCheck/scan"
 	"flag"
 	"github.com/schollz/progressbar/v3"
 	"net/url"
@@ -45,17 +46,19 @@ func main() {
 		Miscellaneous:   data.MiscellaneousData{},
 	}
 	out.PrintScanTitle(websiteURL, format)
-	var p = progressbar.Default(-1, "Checking for Cloudflare IPs...")
-	//res.Miscellaneous.UseCloudflare = scan.IsCloudflare(websiteURL)
+	var p = progressbar.Default(-1, "Getting Geolocation...")
+	res.Miscellaneous = scan.FillHostInformation(domain, locationApiKey)
+	p.Finish()
+	p = progressbar.Default(-1, "Checking for Cloudflare IPs...")
+	res.Miscellaneous.UseCloudflare = scan.IsCloudflare(domain)
 	p.Finish()
 	if !res.Miscellaneous.UseCloudflare {
-
 		p = progressbar.Default(-1, "Executing portscan...")
-		//res.Ports = scan.StartPortScan(domain)
+		res.Ports = scan.StartPortScan(domain)
 		p.Finish()
 	}
-	p = progressbar.Default(-1, "Getting Geolocation...")
-	//res.Miscellaneous = scan.FillHostInformation(domain, res.Miscellaneous, locationApiKey)
+	p = progressbar.Default(-1, "Getting TLS information...")
+	res.Tls = scan.TlsCheck(domain)
 	p.Finish()
 	//output result
 	out.PrintResult(res, format)

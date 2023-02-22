@@ -1,16 +1,20 @@
 package data
 
+import "time"
+
 type TlsData struct {
 	VersionsAvailable   []TlsVersion
 	VersionsUnavailable []TlsVersion
-	Domain              string
+	RawCertInfo         string
 	Issuer              string
+	Subject             string
 	Valid               bool
-	Sha256              string
-	Sha1                string
+	NotBefore           time.Time
+	NotAfter            time.Time
 }
 
 type TlsVersion struct {
 	Name        string
-	IsOutofDate bool
+	IsOutOfDate bool
+	Id          uint16
 }

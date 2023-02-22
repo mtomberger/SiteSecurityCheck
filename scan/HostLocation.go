@@ -21,9 +21,11 @@ type LocationApiResult struct {
 	CreditsConsumed int     `json:"credits_consumed"`
 }
 
-func FillHostInformation(url string, info data.MiscellaneousData, apiKey string) data.MiscellaneousData {
+func FillHostInformation(url string, apiKey string) data.MiscellaneousData {
 	var locRes LocationApiResult
+	var info data.MiscellaneousData
 	ipaddr := getIp(url)
+
 	info.ServerIp = ipaddr
 
 	if len(apiKey) < 1 {
