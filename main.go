@@ -14,8 +14,10 @@ func main() {
 	var cveApiKey string
 	var locationApiKey string
 	var websiteURL string
+	var isVerbose bool
 	var format out.Format
 	flag.StringVar(&websiteURL, "u", "", "URL of the website to scan")
+	flag.BoolVar(&isVerbose, "v", false, "Verbose. Print additional information")
 	flag.StringVar(&cveApiKey, "cve", "", "API Key for the CVE API")
 	flag.StringVar(&locationApiKey, "loc", "", "API Key for the Location API")
 	flag.StringVar((*string)(&format), "f", "human", "Format of the output. Available values: 'json'= JSON of the result, 'human'= human readable format")
@@ -60,6 +62,17 @@ func main() {
 	p = progressbar.Default(-1, "Getting TLS information...")
 	res.Tls = scan.TlsCheck(domain)
 	p.Finish()
+	p = progressbar.Default(-1, "Analysing HTTP headers...")
+	res.Headers = scan.AnalyzeHeaders(websiteURL)
+	p.Finish()
+
+	if !isVerbose {
+		res.Tls.RawCertInfo = ""
+		/*for _,h := range res.Headers{
+			h.DocLink = ""
+			h.Rating.Description = ""
+		}*/
+	}
 	//output result
 	out.PrintResult(res, format)
 
