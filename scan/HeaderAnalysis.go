@@ -166,11 +166,13 @@ var headerInfos = []headerInfo{
 	},
 }
 
-func analyzeHeader(headers http.Header, info headerInfo) data.HeaderData {
+func analyzeHeader(headers http.Header, info headerInfo, isVerbose bool) data.HeaderData {
 	value := headers.Get(info.Name)
 	headerData := data.HeaderData{
 		HeaderName: info.Name,
-		DocLink:    docLinkBase + info.Name,
+	}
+	if isVerbose {
+		headerData.DocLink = docLinkBase + info.Name
 	}
 	if value == "" {
 		headerData.IsSet = false
@@ -185,7 +187,7 @@ func analyzeHeader(headers http.Header, info headerInfo) data.HeaderData {
 	return headerData
 }
 
-func AnalyzeHeaders(url string) []data.HeaderData {
+func AnalyzeHeaders(url string, isVerbose bool) []data.HeaderData {
 	resp, err := http.Get(url)
 	if err != nil {
 		out.PrintError("AnalyzeHeaders: url not reachable %s", err.Error())
@@ -195,7 +197,7 @@ func AnalyzeHeaders(url string) []data.HeaderData {
 
 	var headers []data.HeaderData
 	for _, info := range headerInfos {
-		headers = append(headers, analyzeHeader(resp.Header, info))
+		headers = append(headers, analyzeHeader(resp.Header, info, isVerbose))
 	}
 	return headers
 }

@@ -4,27 +4,9 @@ import (
 	"SiteSecurityCheck/data"
 	"SiteSecurityCheck/utility"
 	"crypto/tls"
-	"encoding/json"
-	"os"
+	"net/http"
 	"sync"
 )
-
-type TlsScanConfig struct {
-	Threads int `json:"threads"`
-}
-
-func getTlsConfig() TlsScanConfig {
-	var ports TlsScanConfig
-	source, err := os.ReadFile("config/scanConfig.json")
-	if err != nil {
-		panic(err)
-	}
-	err = json.Unmarshal(source, &ports)
-	if err != nil {
-		panic(err)
-	}
-	return ports
-}
 
 type VersionResult struct {
 	Version   data.TlsVersion
@@ -47,7 +29,7 @@ func testTLSVersion(host string, version data.TlsVersion, wg *sync.WaitGroup, re
 	resultChan <- VersionResult{version, true, nil}
 }
 
-func TlsCheck(url string) data.TlsData {
+func tlsVersionCheck(url string, isVerbose bool, conf utility.ScanConfig) data.TlsData {
 	versions := []data.TlsVersion{
 		{
 			Name:        "TLS v1.3",
@@ -75,7 +57,6 @@ func TlsCheck(url string) data.TlsData {
 			Id:          tls.VersionSSL30,
 		},
 	}
-	conf := getTlsConfig()
 
 	var wg sync.WaitGroup
 	var tlsData data.TlsData
@@ -110,7 +91,9 @@ func TlsCheck(url string) data.TlsData {
 					tlsData.Valid = true
 					certChain := conn.ConnectionState().PeerCertificates
 					cert := certChain[0]
-					tlsData.RawCertInfo, err = utility.CertificateText(cert)
+					if isVerbose {
+						tlsData.RawCertInfo, err = utility.CertificateText(cert)
+					}
 					tlsData.NotBefore = cert.NotBefore
 					tlsData.NotAfter = cert.NotAfter
 					tlsData.Subject = utility.GetSubject(cert)
@@ -123,5 +106,65 @@ func TlsCheck(url string) data.TlsData {
 			tlsData.VersionsUnavailable = append(tlsData.VersionsUnavailable, result.Version)
 		}
 	}
+	return tlsData
+}
+func tlsRedirect(domain string) bool {
+	resp, err := http.Get("http://" + domain)
+	if err != nil {
+		return false
+	}
+	defer resp.Body.Close()
+	if resp.TLS != nil && len(resp.TLS.PeerCertificates) > 0 {
+		return true
+	} else if resp.StatusCode >= 300 && resp.StatusCode < 400 {
+		location, err := resp.Location()
+		return err == nil && location.Scheme == "https"
+	}
+	return false
+}
+func tlsAvailable(domain string) bool {
+	resp, err := http.Get("https://" + domain)
+	if err != nil {
+		return false
+	}
+	defer resp.Body.Close()
+	return resp.TLS != nil && len(resp.TLS.PeerCertificates) > 0
+}
+
+func TlsCheck(domain string, isVerbose bool, conf utility.ScanConfig) data.TlsData {
+
+	var wg sync.WaitGroup
+	l := sync.Mutex{}
+	wg.Add(3)
+	tlsData := data.TlsData{}
+	go func() {
+		defer wg.Done()
+		resultTlsData := tlsVersionCheck(domain, isVerbose, conf)
+		l.Lock()
+		tlsData.RawCertInfo = resultTlsData.RawCertInfo
+		tlsData.Subject = resultTlsData.Subject
+		tlsData.Issuer = resultTlsData.Issuer
+		tlsData.NotAfter = resultTlsData.NotAfter
+		tlsData.NotBefore = resultTlsData.NotBefore
+		tlsData.Valid = resultTlsData.Valid
+		tlsData.VersionsUnavailable = resultTlsData.VersionsUnavailable
+		tlsData.VersionsAvailable = resultTlsData.VersionsAvailable
+		l.Unlock()
+	}()
+	go func() {
+		defer wg.Done()
+		redirToHttps := tlsRedirect(domain)
+		l.Lock()
+		tlsData.RedirectToHttps = redirToHttps
+		l.Unlock()
+	}()
+	go func() {
+		defer wg.Done()
+		httpsAvailable := tlsAvailable(domain)
+		l.Lock()
+		tlsData.HttpsAvailable = httpsAvailable
+		l.Unlock()
+	}()
+	wg.Wait()
 	return tlsData
 }

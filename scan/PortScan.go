@@ -2,6 +2,7 @@ package scan
 
 import (
 	"SiteSecurityCheck/data"
+	"SiteSecurityCheck/utility"
 	"encoding/json"
 	"fmt"
 	"net"
@@ -42,7 +43,6 @@ func getIp(url string) string {
 }
 func IsCloudflare(url string) bool {
 	var conf = portsFromConfig()
-
 	ipaddr := getIp(url)
 	for _, c := range conf.CloudflareIps {
 		if c == "" {
@@ -88,8 +88,7 @@ func inc(ip net.IP) {
 		}
 	}
 }
-func StartPortScan(url string) []data.FoundPort {
-	var conf = portsFromConfig()
+func StartPortScan(url string, conf utility.ScanConfig) []data.FoundPort {
 	return scanHost(getIp(url), conf)
 }
 
@@ -106,7 +105,7 @@ func portsFromConfig() PortScanConfig {
 	return ports
 }
 
-func scanHost(host string, conf PortScanConfig) []data.FoundPort {
+func scanHost(host string, conf utility.ScanConfig) []data.FoundPort {
 	ps := newPortScanner(host, time.Duration(conf.TimeoutSeconds)*time.Second, conf.Threads)
 
 	openedPorts := ps.getOpenedPort(conf.PortRangeStart, conf.PortRangeStop)
@@ -122,7 +121,7 @@ func scanHost(host string, conf PortScanConfig) []data.FoundPort {
 	}
 	return descripedPorts
 }
-func descripePort(port int, conf PortScanConfig) string {
+func descripePort(port int, conf utility.ScanConfig) string {
 	description := "UNKNOWN"
 	for _, e := range conf.Ports {
 		if e.Port == port {

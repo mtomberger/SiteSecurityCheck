@@ -11,6 +11,8 @@ type TlsData struct {
 	Valid               bool
 	NotBefore           time.Time
 	NotAfter            time.Time
+	HttpsAvailable      bool
+	RedirectToHttps     bool
 }
 
 type TlsVersion struct {
