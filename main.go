@@ -105,9 +105,10 @@ func main() {
 		defer wg.Done()
 		res.Cms = scan.AnalyseCms(websiteURL, isVerbose, config)
 	}()
+	wg.Wait()
 	//get Vulnerabilities from db
 	res.Vulnerabilities = scan.GetVulnerabilities(res, cveApiKey, cveLimit)
-	wg.Wait()
+
 	//output result
 	out.PrintResult(res, config, format)
 
