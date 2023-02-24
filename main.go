@@ -9,6 +9,7 @@ import (
 	"net/url"
 	"os"
 	"strings"
+	"sync"
 )
 
 func main() {
@@ -45,7 +46,7 @@ func main() {
 	domain := url.Hostname()
 	//get config
 	config := utility.GetConfiguration(configFile)
-	//start scanning
+	//init scan object
 	var res = data.ScanResult{
 		ScanUrl:             websiteURL,
 		LocationApiProvided: len(locationApiKey) > 0,
@@ -58,21 +59,56 @@ func main() {
 		Ports:               []data.FoundPort{},
 		Miscellaneous:       data.MiscellaneousData{},
 	}
+	//print header of output
 	out.PrintScanTitle(websiteURL, format)
-	res.Tls = scan.TlsCheck(domain, isVerbose, config)
+	//start scanning
+	var wg sync.WaitGroup
+	var isCloudflare bool
+	//scan part 1
+	wg.Add(3)
+	go func() {
+		defer wg.Done()
+		res.Tls = scan.TlsCheck(domain, isVerbose, config)
+	}()
+	go func() {
+		defer wg.Done()
+		res.Miscellaneous = scan.FillHostInformation(domain, locationApiKey)
+	}()
+	go func() {
+		defer wg.Done()
+		isCloudflare = scan.IsCloudflare(domain, config)
+	}()
+	if !res.Miscellaneous.UseCloudflare {
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			res.Ports = scan.StartPortScan(domain, config)
+		}()
+	}
+	wg.Wait()
+	//set and rewrite values from scan part 1
+	res.Miscellaneous.UseCloudflare = isCloudflare
 	if !res.Tls.HttpsAvailable && strings.HasPrefix(websiteURL, "https://") {
 		websiteURL = strings.Replace(websiteURL, "https://", "http://", 1)
 	}
-	res.Miscellaneous = scan.FillHostInformation(domain, locationApiKey)
-	res.Miscellaneous.UseCloudflare = scan.IsCloudflare(domain)
-	if !res.Miscellaneous.UseCloudflare {
-		res.Ports = scan.StartPortScan(domain, config)
-	}
-	res.Headers = scan.AnalyzeHeaders(websiteURL, isVerbose)
-	res.Server = scan.AnalyseServer(websiteURL, isVerbose)
-	res.Cms = scan.AnalyseCms(websiteURL, isVerbose)
+	//scan part 2
+	wg.Add(3)
+	go func() {
+		defer wg.Done()
+		res.Headers = scan.AnalyzeHeaders(websiteURL, isVerbose)
+	}()
+	go func() {
+		defer wg.Done()
+		res.Server = scan.AnalyseServer(websiteURL, isVerbose)
+	}()
+	go func() {
+		defer wg.Done()
+		res.Cms = scan.AnalyseCms(websiteURL, isVerbose, config)
+	}()
+	//get Vulnerabilities from db
 	res.Vulnerabilities = scan.GetVulnerabilities(res, cveApiKey, cveLimit)
+	wg.Wait()
 	//output result
-	out.PrintResult(res, format)
+	out.PrintResult(res, config, format)
 
 }

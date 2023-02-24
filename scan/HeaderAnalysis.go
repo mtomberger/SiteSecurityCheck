@@ -36,7 +36,7 @@ var headerInfos = []headerInfo{
 				}
 			} else if strings.Contains(strings.ToLower(value), "sameorigin") {
 				return data.HeaderRating{
-					Rating:      1,
+					Rating:      2,
 					Description: "The page can only be displayed if all ancestor frames are same origin to the page itself.",
 				}
 			} else if strings.Contains(strings.ToLower(value), "allow-from") {
@@ -47,7 +47,7 @@ var headerInfos = []headerInfo{
 			}
 			return data.HeaderRating{
 				Rating:      0,
-				Description: "Invalid Content '" + value + "'",
+				Description: "Invalid Content '" + shortenHeaderValue(value, 15) + "'",
 			}
 		},
 	},
@@ -56,13 +56,13 @@ var headerInfos = []headerInfo{
 		CalculateRating: func(info headerInfo, value string) data.HeaderRating {
 			if strings.Contains(strings.ToLower(value), "nosniff") {
 				return data.HeaderRating{
-					Rating:      1,
+					Rating:      2,
 					Description: "This header prevents MIME sniffing",
 				}
 			}
 			return data.HeaderRating{
 				Rating:      0,
-				Description: "Invalid Content '" + value + "'",
+				Description: "Invalid Content '" + shortenHeaderValue(value, 15) + "'",
 			}
 		},
 	},
@@ -70,8 +70,8 @@ var headerInfos = []headerInfo{
 		Name: "Content-Security-Policy",
 		CalculateRating: func(info headerInfo, value string) data.HeaderRating {
 			return data.HeaderRating{
-				Rating:      1,
-				Description: "Content-Security-Policy in place: " + value,
+				Rating:      2,
+				Description: "Content-Security-Policy in place: " + shortenHeaderValue(value, 15),
 			}
 		},
 	},
@@ -123,7 +123,7 @@ var headerInfos = []headerInfo{
 			}
 			return data.HeaderRating{
 				Rating:      0,
-				Description: "Invalid Content '" + value + "'",
+				Description: "Invalid Content '" + shortenHeaderValue(value, 15) + "'",
 			}
 		},
 	},
@@ -131,8 +131,8 @@ var headerInfos = []headerInfo{
 		Name: "Permissions-Policy",
 		CalculateRating: func(info headerInfo, value string) data.HeaderRating {
 			return data.HeaderRating{
-				Rating:      1,
-				Description: "Permissions-Policy in place: " + value,
+				Rating:      2,
+				Description: "Permissions-Policy in place: " + shortenHeaderValue(value, 15),
 			}
 		},
 	},
@@ -142,14 +142,16 @@ var headerInfos = []headerInfo{
 			lowerVal := strings.ToLower(value)
 			r := data.HeaderRating{
 				Rating:      0,
-				Description: "Invalid Content '" + value + "'",
+				Description: "Invalid Content '" + shortenHeaderValue(value, 15) + "'",
 			}
 			if strings.Contains(lowerVal, "max-age=") {
 				r.Rating++
 				r.Description = "HSTS enforced"
 				if strings.Contains(lowerVal, "includeSubDomains ") {
-					r.Description = ", subdomains are included"
+					r.Description += ", subdomains are included"
 					r.Rating++
+				} else {
+					r.Description += ", subdomains are not included"
 				}
 			}
 			return r
@@ -166,6 +168,12 @@ var headerInfos = []headerInfo{
 	},
 }
 
+func shortenHeaderValue(value string, size int) string {
+	if len(value) <= size {
+		return value
+	}
+	return value[0:size] + "..."
+}
 func analyzeHeader(headers http.Header, info headerInfo, isVerbose bool) data.HeaderData {
 	value := headers.Get(info.Name)
 	headerData := data.HeaderData{

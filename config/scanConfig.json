@@ -1,5 +1,5 @@
 {
-  "threads": 5,
+  "threads": 10,
   "timeoutSeconds": 1,
   "portRangeStart" : 80,
   "portRangeStop" : 90,

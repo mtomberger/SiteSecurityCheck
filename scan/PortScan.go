@@ -3,10 +3,8 @@ package scan
 import (
 	"SiteSecurityCheck/data"
 	"SiteSecurityCheck/utility"
-	"encoding/json"
 	"fmt"
 	"net"
-	"os"
 	"sync"
 	"time"
 )
@@ -41,8 +39,7 @@ func getIp(url string) string {
 	}
 	return ipaddrs[0].String()
 }
-func IsCloudflare(url string) bool {
-	var conf = portsFromConfig()
+func IsCloudflare(url string, conf utility.ScanConfig) bool {
 	ipaddr := getIp(url)
 	for _, c := range conf.CloudflareIps {
 		if c == "" {
@@ -90,19 +87,6 @@ func inc(ip net.IP) {
 }
 func StartPortScan(url string, conf utility.ScanConfig) []data.FoundPort {
 	return scanHost(getIp(url), conf)
-}
-
-func portsFromConfig() PortScanConfig {
-	var ports PortScanConfig
-	source, err := os.ReadFile("config/scanConfig.json")
-	if err != nil {
-		panic(err)
-	}
-	err = json.Unmarshal(source, &ports)
-	if err != nil {
-		panic(err)
-	}
-	return ports
 }
 
 func scanHost(host string, conf utility.ScanConfig) []data.FoundPort {

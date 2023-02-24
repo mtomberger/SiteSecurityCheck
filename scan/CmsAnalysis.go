@@ -1,8 +1,12 @@
 package scan
 
-import "SiteSecurityCheck/data"
+import (
+	"SiteSecurityCheck/data"
+	"SiteSecurityCheck/utility"
+)
 
-func AnalyseCms(url string, isVerbose bool) data.CmsData {
+func AnalyseCms(url string, isVerbose bool, conf utility.ScanConfig) data.CmsData {
 	var cmsData data.CmsData
+	//TODO implement
 	return cmsData
 }
