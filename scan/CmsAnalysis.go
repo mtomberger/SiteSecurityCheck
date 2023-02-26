@@ -29,8 +29,7 @@ func AnalyseCms(url string, isVerbose bool, conf utility.ScanConfig) data.CmsDat
 			break
 		}
 		if err != nil {
-			out.PrintError("AnalyseCms: Error when reading body %s", err.Error())
-			return cmsData
+			break
 		}
 		bodyBytes = append(bodyBytes, buf[:n]...)
 	}

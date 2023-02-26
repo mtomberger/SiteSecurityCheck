@@ -179,7 +179,7 @@ func printHumanReadableCms(cmsData data.CmsData, conf utility.ScanConfig) {
 	printProperty("Content Management System", cmsInfo)
 	if cmsData.CmsFound {
 		if cmsData.ReachableUrls != nil {
-			printProperty(ColorText(" = Suspicious URLs", "cyan"), "")
+			printProperty(ColorText("= Suspicious URLs", "cyan"), "")
 			for _, u := range cmsData.ReachableUrls {
 				printProperty(u, "")
 			}

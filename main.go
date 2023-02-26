@@ -142,3 +142,5 @@ func main() {
 	out.PrintResult(res, config, format)
 
 }
+
+//-u http://alfright.eu -v -f human -loc 0H1TFS9ACE2 -cve 0fc5074cb7f09126ea37257c7ad967210 -cveL 10
