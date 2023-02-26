@@ -13,6 +13,7 @@ type ScanConfig struct {
 	Cms            []Cms    `json:"cms"`
 	Ports          []Port   `json:"ports"`
 	CloudflareIps  []string `json:"cloudflareIps"`
+	IsReady        bool     `json:"-"`
 }
 type Cms struct {
 	Name        string   `json:"name"`
@@ -32,14 +33,16 @@ func GetConfiguration(path string) ScanConfig {
 	if len(path) == 0 {
 		path = "config/scanConfig.json"
 	}
-	var ports ScanConfig
+	var conf ScanConfig
+	conf.IsReady = false
 	source, err := os.ReadFile(path)
 	if err != nil {
-		panic(err)
+		return conf
 	}
-	err = json.Unmarshal(source, &ports)
+	err = json.Unmarshal(source, &conf)
 	if err != nil {
-		panic(err)
+		return conf
 	}
-	return ports
+	conf.IsReady = true
+	return conf
 }

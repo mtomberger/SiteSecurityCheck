@@ -47,6 +47,10 @@ func main() {
 	domain := url.Hostname()
 	//get config
 	config := utility.GetConfiguration(configFile)
+	if !config.IsReady {
+		out.PrintError("No configuration found in %s", configFile)
+		return
+	}
 	//init scan object
 	var res = data.ScanResult{
 		ScanUrl:             websiteURL,
@@ -62,7 +66,6 @@ func main() {
 	}
 	//print header of output
 	out.PrintScanTitle(websiteURL, format)
-	return
 	//test connection
 	s := out.CreateStatus("Testing connection", false)
 	if !scan.TestConnection(websiteURL, domain) {
