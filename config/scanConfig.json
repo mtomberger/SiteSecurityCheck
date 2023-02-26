@@ -1,16 +1,4186 @@
 {
   "threads": 10,
   "timeoutSeconds": 1,
-  "portRangeStart" : 80,
-  "portRangeStop" : 90,
-  "ports": [
+  "portRangeTCP" : "1,3-4,6-7,9,13,17,19-26,30,32-33,37,42-43,49,53,70,79-85,88-90,99-100,106,109-111,113,119,125,135,139,143-144,146,161,163,179,199,211-212,222,254-256,259,264,280,301,306,311,340,366,389,406-407,416-417,425,427,443-445,458,464-465,481,497,500,512-515,524,541,543-545,548,554-555,563,587,593,616-617,625,631,636,646,648,666-668,683,687,691,700,705,711,714,720,722,726,749,765,777,783,787,800-801,808,843,873,880,888,898,900-903,911-912,981,987,990,992-993,995,999-1002,1007,1009-1011,1021-1100,1102,1104-1108,1110-1114,1117,1119,1121-1124,1126,1130-1132,1137-1138,1141,1145,1147-1149,1151-1152,1154,1163-1166,1169,1174-1175,1183,1185-1187,1192,1198-1199,1201,1213,1216-1218,1233-1234,1236,1244,1247-1248,1259,1271-1272,1277,1287,1296,1300-1301,1309-1311,1322,1328,1334,1352,1417,1433-1434,1443,1455,1461,1494,1500-1501,1503,1521,1524,1533,1556,1580,1583,1594,1600,1641,1658,1666,1687-1688,1700,1717-1721,1723,1755,1761,1782-1783,1801,1805,1812,1839-1840,1862-1864,1875,1900,1914,1935,1947,1971-1972,1974,1984,1998-2010,2013,2020-2022,2030,2033-2035,2038,2040-2043,2045-2049,2065,2068,2099-2100,2103,2105-2107,2111,2119,2121,2126,2135,2144,2160-2161,2170,2179,2190-2191,2196,2200,2222,2251,2260,2288,2301,2323,2366,2381-2383,2393-2394,2399,2401,2492,2500,2522,2525,2557,2601-2602,2604-2605,2607-2608,2638,2701-2702,2710,2717-2718,2725,2800,2809,2811,2869,2875,2909-2910,2920,2967-2968,2998,3000-3001,3003,3005-3007,3011,3013,3017,3030-3031,3052,3071,3077,3128,3168,3211,3221,3260-3261,3268-3269,3283,3300-3301,3306,3322-3325,3333,3351,3367,3369-3372,3389-3390,3404,3476,3493,3517,3527,3546,3551,3580,3659,3689-3690,3703,3737,3766,3784,3800-3801,3809,3814,3826-3828,3851,3869,3871,3878,3880,3889,3905,3914,3918,3920,3945,3971,3986,3995,3998,4000-4006,4045,4111,4125-4126,4129,4224,4242,4279,4321,4343,4443-4446,4449,4550,4567,4662,4848,4899-4900,4998,5000-5004,5009,5030,5033,5050-5051,5054,5060-5061,5080,5087,5100-5102,5120,5190,5200,5214,5221-5222,5225-5226,5269,5280,5298,5357,5405,5414,5431-5432,5440,5500,5510,5544,5550,5555,5560,5566,5631,5633,5666,5678-5679,5718,5730,5800-5802,5810-5811,5815,5822,5825,5850,5859,5862,5877,5900-5904,5906-5907,5910-5911,5915,5922,5925,5950,5952,5959-5963,5987-5989,5998-6007,6009,6025,6059,6100-6101,6106,6112,6123,6129,6156,6346,6389,6502,6510,6543,6547,6565-6567,6580,6646,6666-6669,6689,6692,6699,6779,6788-6789,6792,6839,6881,6901,6969,7000-7002,7004,7007,7019,7025,7070,7100,7103,7106,7200-7201,7402,7435,7443,7496,7512,7625,7627,7676,7741,7777-7778,7800,7911,7920-7921,7937-7938,7999-8002,8007-8011,8021-8022,8031,8042,8045,8080-8090,8093,8099-8100,8180-8181,8192-8194,8200,8222,8254,8290-8292,8300,8333,8383,8400,8402,8443,8500,8600,8649,8651-8652,8654,8701,8800,8873,8888,8899,8994,9000-9003,9009-9011,9040,9050,9071,9080-9081,9090-9091,9099-9103,9110-9111,9200,9207,9220,9290,9415,9418,9485,9500,9502-9503,9535,9575,9593-9595,9618,9666,9876-9878,9898,9900,9917,9929,9943-9944,9968,9998-10004,10009-10010,10012,10024-10025,10082,10180,10215,10243,10566,10616-10617,10621,10626,10628-10629,10778,11110-11111,11967,12000,12174,12265,12345,13456,13722,13782-13783,14000,14238,14441-14442,15000,15002-15004,15660,15742,16000-16001,16012,16016,16018,16080,16113,16992-16993,17877,17988,18040,18101,18988,19101,19283,19315,19350,19780,19801,19842,20000,20005,20031,20221-20222,20828,21571,22939,23502,24444,24800,25734-25735,26214,27000,27352-27353,27355-27356,27715,28201,30000,30718,30951,31038,31337,32768-32785,33354,33899,34571-34573,35500,38292,40193,40911,41511,42510,44176,44442-44443,44501,45100,48080,49152-49161,49163,49165,49167,49175-49176,49400,49999-50003,50006,50300,50389,50500,50636,50800,51103,51493,52673,52822,52848,52869,54045,54328,55055-55056,55555,55600,56737-56738,57294,57797,58080,60020,60443,61532,61900,62078,63331,64623,64680,65000,65129,65389",
+  "portRangeUDP" : "2-3,7,9,13,17,19-23,37-38,42,49,53,67-69,80,88,111-113,120,123,135-139,158,161-162,177,192,199,207,217,363,389,402,407,427,434,443,445,464,497,500,502,512-515,517-518,520,539,559,593,623,626,631,639,643,657,664,682-689,764,767,772-776,780-782,786,789,800,814,826,829,838,902-903,944,959,965,983,989-990,996-1001,1007-1008,1012-1014,1019-1051,1053-1060,1064-1070,1072,1080-1081,1087-1088,1090,1100-1101,1105,1124,1200,1214,1234,1346,1419,1433-1434,1455,1457,1484-1485,1524,1645-1646,1701,1718-1719,1761,1782,1804,1812-1813,1885-1886,1900-1901,1993,2000,2002,2048-2049,2051,2148,2160-2161,2222-2223,2343,2345,2362,2967,3052,3130,3283,3296,3343,3389,3401,3456-3457,3659,3664,3702-3703,4000,4008,4045,4444,4500,4666,4672,5000-5003,5010,5050,5060,5093,5351,5353,5355,5500,5555,5632,6000-6002,6004,6050,6346-6347,6970-6971,7000,7938,8000-8001,8010,8181,8193,8900,9000-9001,9020,9103,9199-9200,9370,9876-9877,9950,10000,10080,11487,16086,16402,16420,16430,16433,16449,16498,16503,16545,16548,16573,16674,16680,16697,16700,16708,16711,16739,16766,16779,16786,16816,16829,16832,16838-16839,16862,16896,16912,16918-16919,16938-16939,16947-16948,16970,16972,16974,17006,17018,17077,17091,17101,17146,17184-17185,17205,17207,17219,17236-17237,17282,17302,17321,17331-17332,17338,17359,17417,17423-17424,17455,17459,17468,17487,17490,17494,17505,17533,17549,17573,17580,17585,17592,17605,17615-17616,17629,17638,17663,17673-17674,17683,17726,17754,17762,17787,17814,17823-17824,17836,17845,17888,17939,17946,17989,18004,18081,18113,18134,18156,18228,18234,18250,18255,18258,18319,18331,18360,18373,18449,18485,18543,18582,18605,18617,18666,18669,18676,18683,18807,18818,18821,18830,18832,18835,18869,18883,18888,18958,18980,18985,18987,18991,18994,18996,19017,19022,19039,19047,19075,19096,19120,19130,19140-19141,19154,19161,19165,19181,19193,19197,19222,19227,19273,19283,19294,19315,19322,19332,19374,19415,19482,19489,19500,19503-19504,19541,19600,19605,19616,19624-19625,19632,19639,19647,19650,19660,19662-19663,19682-19683,19687,19695,19707,19717-19719,19722,19728,19789,19792,19933,19935-19936,19956,19995,19998,20003-20004,20019,20031,20082,20117,20120,20126,20129,20146,20154,20164,20206,20217,20249,20262,20279,20288,20309,20313,20326,20359-20360,20366,20380,20389,20409,20411,20423-20425,20445,20449,20464-20465,20518,20522,20525,20540,20560,20665,20678-20679,20710,20717,20742,20752,20762,20791,20817,20842,20848,20851,20865,20872,20876,20884,20919,21000,21016,21060,21083,21104,21111,21131,21167,21186,21206-21207,21212,21247,21261,21282,21298,21303,21318,21320,21333,21344,21354,21358,21360,21364,21366,21383,21405,21454,21468,21476,21514,21524-21525,21556,21566,21568,21576,21609,21621,21625,21644,21649,21655,21663,21674,21698,21702,21710,21742,21780,21784,21800,21803,21834,21842,21847,21868,21898,21902,21923,21948,21967,22029,22043,22045,22053,22055,22105,22109,22123-22124,22341,22692,22695,22739,22799,22846,22914,22986,22996,23040,23176,23354,23531,23557,23608,23679,23781,23965,23980,24007,24279,24511,24594,24606,24644,24854,24910,25003,25157,25240,25280,25337,25375,25462,25541,25546,25709,25931,26407,26415,26720,26872,26966,27015,27195,27444,27473,27482,27707,27892,27899,28122,28369,28465,28493,28543,28547,28641,28840,28973,29078,29243,29256,29810,29823,29977,30263,30303,30365,30544,30656,30697,30704,30718,30975,31059,31073,31109,31189,31195,31335,31337,31365,31625,31681,31731,31891,32345,32385,32528,32768-32780,32798,32815,32818,32931,33030,33249,33281,33354-33355,33459,33717,33744,33866,33872,34038,34079,34125,34358,34422,34433,34555,34570,34577-34580,34758,34796,34855,34861-34862,34892,35438,35702,35777,35794,36108,36206,36384,36458,36489,36669,36778,36893,36945,37144,37212,37393,37444,37602,37761,37783,37813,37843,38037,38063,38293,38412,38498,38615,39213,39217,39632,39683,39714,39723,39888,40019,40116,40441,40539,40622,40708,40711,40724,40732,40805,40847,40866,40915,41058,41081,41308,41370,41446,41524,41638,41702,41774,41896,41967,41971,42056,42172,42313,42431,42434,42508,42557,42577,42627,42639,43094,43195,43370,43514,43686,43824,43967,44101,44160,44179,44185,44190,44253,44334,44508,44923,44946,44968,45247,45380,45441,45685,45722,45818,45928,46093,46532,46836,47624,47765,47772,47808,47915,47981,48078,48189,48255,48455,48489,48761,49152-49163,49165-49182,49184-49202,49204-49205,49207-49216,49220,49222,49226,49259,49262,49306,49350,49360,49393,49396,49503,49640,49968,50099,50164,50497,50612,50708,50919,51255,51456,51554,51586,51690,51717,51905,51972,52144,52225,52503,53006,53037,53571,53589,53838,54094,54114,54281,54321,54711,54807,54925,55043,55544,55587,56141,57172,57409-57410,57813,57843,57958,57977,58002,58075,58178,58419,58631,58640,58797,59193,59207,59765,59846,60172,60381,60423,61024,61142,61319,61322,61370,61412,61481,61550,61685,61961,62154,62287,62575,62677,62699,62958,63420,63555,64080,64481,64513,64590,64727,65024",
+  "portRangeTCP": "80,8080,443,22",
+  "portRangeUDP": "",
+  "cms": [
     {
-      "desc": "HTTP",
-      "port": 80
+      "name": "Wordpress",
+      "searchRegex": [
+        "<meta name=\"generator\" content=\"((?:w|W)ord(?:p|P)ress[^\"]*)"
+      ],
+      "urls": [
+        "/wp-admin/",
+        "/wp-login.php",
+        "/wp-includes/",
+        "/wp-content/",
+        "/wp-content/themes/",
+        "/wp-content/plugins/",
+        "/wp-config.php",
+        "/wp-cron.php"
+      ],
+      "pluginRegex": "https?://[^/]+/wp-content/plugins/([^/]+)/"
     },
     {
-      "desc": "SSH",
-      "port": 22
+      "name": "TYPO3",
+      "searchRegex": [
+        "<meta name=\"generator\" content=\"((?:t|T)(?:y|Y)(?:p|P)(?:o|O)3[^\"]*)"
+      ],
+      "urls": [
+        "/typo3/",
+        "/typo3/index.php",
+        "/typo3conf/",
+        "/typo3conf/ext/",
+        "/typo3temp/",
+        "/fileadmin/",
+        "/uploads/"
+      ],
+      "pluginRegex": "https?://[^/]+/typo3conf/ext/([^/]+)/"
+    }
+  ],
+  "ports": [
+    {
+      "desc": "tcpmux",
+      "port": 1,
+      "longDesc": "TCP Port Service Multiplexer",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "compressnet",
+      "port": 3,
+      "longDesc": "Compression Process",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "echo",
+      "port": 7,
+      "longDesc": "Echo",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "discard",
+      "port": 9,
+      "longDesc": "Discard",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "daytime",
+      "port": 13,
+      "longDesc": "Daytime",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "qotd",
+      "port": 17,
+      "longDesc": "Quote of the Day",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "chargen",
+      "port": 19,
+      "longDesc": "Character Generator",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ftp-data",
+      "port": 20,
+      "longDesc": "File Transfer [Default Data]",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ftp",
+      "port": 21,
+      "longDesc": "File Transfer Protocol [Control]",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ssh",
+      "port": 22,
+      "longDesc": "The Secure Shell (SSH) Protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "telnet",
+      "port": 23,
+      "longDesc": "Telnet",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "smtp",
+      "port": 25,
+      "longDesc": "Simple Mail Transfer",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "dsp",
+      "port": 33,
+      "longDesc": "Display Support Protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "time",
+      "port": 37,
+      "longDesc": "Time",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "name",
+      "port": 42,
+      "longDesc": "Host Name Server",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "nicname",
+      "port": 43,
+      "longDesc": "Who Is",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "tacacs",
+      "port": 49,
+      "longDesc": "Login Host Protocol (TACACS)",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "domain",
+      "port": 53,
+      "longDesc": "Domain Name Server",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "gopher",
+      "port": 70,
+      "longDesc": "Gopher",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "finger",
+      "port": 79,
+      "longDesc": "Finger",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "http",
+      "port": 80,
+      "longDesc": "World Wide Web HTTP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "xfer",
+      "port": 82,
+      "longDesc": "XFER Utility",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "mit-ml-dev",
+      "port": 83,
+      "longDesc": "MIT ML Device",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ctf",
+      "port": 84,
+      "longDesc": "Common Trace Facility",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "mit-ml-dev",
+      "port": 85,
+      "longDesc": "MIT ML Device",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "kerberos",
+      "port": 88,
+      "longDesc": "Kerberos",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "su-mit-tg",
+      "port": 89,
+      "longDesc": "SU/MIT Telnet Gateway",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "dnsix",
+      "port": 90,
+      "longDesc": "DNSIX Securit Attribute Token Map",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "metagram",
+      "port": 99,
+      "longDesc": "Metagram Relay",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "3com-tsmux",
+      "port": 106,
+      "longDesc": "3COM-TSMUX",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "pop2",
+      "port": 109,
+      "longDesc": "Post Office Protocol - Version 2",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "pop3",
+      "port": 110,
+      "longDesc": "Post Office Protocol - Version 3",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "sunrpc",
+      "port": 111,
+      "longDesc": "SUN Remote Procedure Call",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ident",
+      "port": 113,
+      "protocol": "tcp"
+    },
+    {
+      "desc": "nntp",
+      "port": 119,
+      "longDesc": "Network News Transfer Protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "locus-map",
+      "port": 125,
+      "longDesc": "Locus PC-Interface Net Map Ser",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "epmap",
+      "port": 135,
+      "longDesc": "DCE endpoint resolution",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "netbios-ssn",
+      "port": 139,
+      "longDesc": "NETBIOS Session Service",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "imap",
+      "port": 143,
+      "longDesc": "Internet Message Access Protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "uma",
+      "port": 144,
+      "longDesc": "Universal Management Architecture",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "iso-tp0",
+      "port": 146,
+      "longDesc": "ISO-IP0",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "snmp",
+      "port": 161,
+      "longDesc": "SNMP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "cmip-man",
+      "port": 163,
+      "longDesc": "CMIP/TCP Manager",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "bgp",
+      "port": 179,
+      "longDesc": "Border Gateway Protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "smux",
+      "port": 199,
+      "longDesc": "SMUX",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "914c-g",
+      "port": 211,
+      "longDesc": "Texas Instruments 914C/G Terminal IANA assigned this well-formed service name as a replacement for \"914c/g\".",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "anet",
+      "port": 212,
+      "longDesc": "ATEXSSTR",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "rsh-spx",
+      "port": 222,
+      "longDesc": "Berkeley rshd with SPX auth",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "rap",
+      "port": 256,
+      "longDesc": "RAP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "esro-gen",
+      "port": 259,
+      "longDesc": "Efficient Short Remote Operations",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "bgmp",
+      "port": 264,
+      "longDesc": "BGMP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "http-mgmt",
+      "port": 280,
+      "longDesc": "http-mgmt",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "asip-webadmin",
+      "port": 311,
+      "longDesc": "AppleShare IP WebAdmin",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "odmr",
+      "port": 366,
+      "longDesc": "ODMR",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ldap",
+      "port": 389,
+      "longDesc": "Lightweight Directory Access Protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "imsp",
+      "port": 406,
+      "longDesc": "Interactive Mail Support Protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "timbuktu",
+      "port": 407,
+      "longDesc": "Timbuktu",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "silverplatter",
+      "port": 416,
+      "longDesc": "Silverplatter",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "onmux",
+      "port": 417,
+      "longDesc": "Onmux",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "icad-el",
+      "port": 425,
+      "longDesc": "ICAD",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "svrloc",
+      "port": 427,
+      "longDesc": "Server Location",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "https",
+      "port": 443,
+      "longDesc": "http protocol over TLS/SSL",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "snpp",
+      "port": 444,
+      "longDesc": "Simple Network Paging Protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "microsoft-ds",
+      "port": 445,
+      "longDesc": "Microsoft-DS",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "appleqtc",
+      "port": 458,
+      "longDesc": "apple quick time",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "kpasswd",
+      "port": 464,
+      "longDesc": "kpasswd",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "urd",
+      "port": 465,
+      "longDesc": "URL Rendezvous Directory for SSM",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ph",
+      "port": 481,
+      "longDesc": "Ph service",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "retrospect",
+      "port": 497,
+      "longDesc": "Retrospect backup and restore service",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "isakmp",
+      "port": 500,
+      "longDesc": "isakmp",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "exec",
+      "port": 512,
+      "longDesc": "remote process execution; authentication performed using passwords and UNIX login names",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "login",
+      "port": 513,
+      "longDesc": "remote login a la telnet; automatic authentication performed based on priviledged port numbers and distributed data bases which identify \"authentication domains\"",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "shell",
+      "port": 514,
+      "longDesc": "cmd like exec, but automatic authentication is performed as for login server",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "printer",
+      "port": 515,
+      "longDesc": "spooler",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ncp",
+      "port": 524,
+      "longDesc": "NCP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "uucp-rlogin",
+      "port": 541,
+      "longDesc": "uucp-rlogin",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "klogin",
+      "port": 543,
+      "protocol": "tcp"
+    },
+    {
+      "desc": "kshell",
+      "port": 544,
+      "longDesc": "krcmd",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "appleqtcsrvr",
+      "port": 545,
+      "longDesc": "appleqtcsrvr",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "afpovertcp",
+      "port": 548,
+      "longDesc": "AFP over TCP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "rtsp",
+      "port": 554,
+      "longDesc": "Real Time Streaming Protocol (RTSP)",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "dsf",
+      "port": 555,
+      "protocol": "tcp"
+    },
+    {
+      "desc": "nntps",
+      "port": 563,
+      "longDesc": "nntp protocol over TLS/SSL (was snntp)",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "submission",
+      "port": 587,
+      "longDesc": "Message Submission",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "http-rpc-epmap",
+      "port": 593,
+      "longDesc": "HTTP RPC Ep Map",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "sco-sysmgr",
+      "port": 616,
+      "longDesc": "SCO System Administration Server",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "sco-dtmgr",
+      "port": 617,
+      "longDesc": "SCO Desktop Administration Server",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "dec-dlm",
+      "port": 625,
+      "longDesc": "DEC DLM IANA assigned this well-formed service name as a replacement for \"dec_dlm\".",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ipp",
+      "port": 631,
+      "longDesc": "IPP (Internet Printing Protocol)",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ldaps",
+      "port": 636,
+      "longDesc": "ldap protocol over TLS/SSL (was sldap)",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ldp",
+      "port": 646,
+      "longDesc": "LDP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "rrp",
+      "port": 648,
+      "longDesc": "Registry Registrar Protocol (RRP)",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "mdqs",
+      "port": 666,
+      "protocol": "tcp"
+    },
+    {
+      "desc": "disclose",
+      "port": 667,
+      "longDesc": "campaign contribution disclosures - SDR Technologies",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "mecomm",
+      "port": 668,
+      "longDesc": "MeComm",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "corba-iiop",
+      "port": 683,
+      "longDesc": "CORBA IIOP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "asipregistry",
+      "port": 687,
+      "longDesc": "asipregistry",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "msexch-routing",
+      "port": 691,
+      "longDesc": "MS Exchange Routing",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "epp",
+      "port": 700,
+      "longDesc": "Extensible Provisioning Protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "agentx",
+      "port": 705,
+      "longDesc": "AgentX",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "cisco-tdp",
+      "port": 711,
+      "longDesc": "Cisco TDP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "iris-xpcs",
+      "port": 714,
+      "longDesc": "IRIS over XPCS",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "kerberos-adm",
+      "port": 749,
+      "longDesc": "kerberos administration",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "webster",
+      "port": 765,
+      "protocol": "tcp"
+    },
+    {
+      "desc": "multiling-http",
+      "port": 777,
+      "longDesc": "Multiling HTTP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "mdbs-daemon",
+      "port": 800,
+      "longDesc": "IANA assigned this well-formed service name as a replacement for \"mdbs_daemon\".",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "device",
+      "port": 801,
+      "protocol": "tcp"
+    },
+    {
+      "desc": "rsync",
+      "port": 873,
+      "longDesc": "rsync",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "accessbuilder",
+      "port": 888,
+      "longDesc": "AccessBuilder",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "omginitialrefs",
+      "port": 900,
+      "longDesc": "OMG Initial Refs",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "smpnameres",
+      "port": 901,
+      "longDesc": "SMPNAMERES",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ideafarm-door",
+      "port": 902,
+      "longDesc": "self documenting Telnet Door",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ideafarm-panic",
+      "port": 903,
+      "longDesc": "self documenting Telnet Panic Door",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "xact-backup",
+      "port": 911,
+      "longDesc": "xact-backup",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "apex-mesh",
+      "port": 912,
+      "longDesc": "APEX relay-relay service",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ftps",
+      "port": 990,
+      "longDesc": "ftp protocol, control, over TLS/SSL",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "telnets",
+      "port": 992,
+      "longDesc": "telnet protocol over TLS/SSL",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "imaps",
+      "port": 993,
+      "longDesc": "IMAP over TLS protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "pop3s",
+      "port": 995,
+      "longDesc": "POP3 over TLS protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "garcon",
+      "port": 999,
+      "protocol": "tcp"
+    },
+    {
+      "desc": "cadlock2",
+      "port": 1000,
+      "protocol": "tcp"
+    },
+    {
+      "desc": "webpush",
+      "port": 1001,
+      "longDesc": "HTTP Web Push",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "surf",
+      "port": 1010,
+      "longDesc": "surf",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "exp1",
+      "port": 1021,
+      "longDesc": "RFC3692-style Experiment 1",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "exp2",
+      "port": 1022,
+      "longDesc": "RFC3692-style Experiment 2",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "blackjack",
+      "port": 1025,
+      "longDesc": "network blackjack",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "cap",
+      "port": 1026,
+      "longDesc": "Calendar Access Protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "solid-mux",
+      "port": 1029,
+      "longDesc": "Solid Mux Server",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "netinfo-local",
+      "port": 1033,
+      "longDesc": "local netinfo port",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "activesync",
+      "port": 1034,
+      "longDesc": "ActiveSync Notifications",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "mxxrlogin",
+      "port": 1035,
+      "longDesc": "MX-XR RPC",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "nsstp",
+      "port": 1036,
+      "longDesc": "Nebula Secure Segment Transfer Protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ams",
+      "port": 1037,
+      "longDesc": "AMS",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "mtqp",
+      "port": 1038,
+      "longDesc": "Message Tracking Query Protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "sbl",
+      "port": 1039,
+      "longDesc": "Streamlined Blackhole",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "netarx",
+      "port": 1040,
+      "longDesc": "Netarx Netcare",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "danf-ak2",
+      "port": 1041,
+      "longDesc": "AK2 Product",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "afrog",
+      "port": 1042,
+      "longDesc": "Subnet Roaming",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "boinc-client",
+      "port": 1043,
+      "longDesc": "BOINC Client Control",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "dcutility",
+      "port": 1044,
+      "longDesc": "Dev Consortium Utility",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "fpitp",
+      "port": 1045,
+      "longDesc": "Fingerprint Image Transfer Protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "wfremotertm",
+      "port": 1046,
+      "longDesc": "WebFilter Remote Monitor",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "neod1",
+      "port": 1047,
+      "longDesc": "Sun's NEO Object Request Broker",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "neod2",
+      "port": 1048,
+      "longDesc": "Sun's NEO Object Request Broker",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "td-postman",
+      "port": 1049,
+      "longDesc": "Tobit David Postman VPMN",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "cma",
+      "port": 1050,
+      "longDesc": "CORBA Management Agent",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "optima-vnet",
+      "port": 1051,
+      "longDesc": "Optima VNET",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ddt",
+      "port": 1052,
+      "longDesc": "Dynamic DNS Tools",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "remote-as",
+      "port": 1053,
+      "longDesc": "Remote Assistant (RA)",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "brvread",
+      "port": 1054,
+      "longDesc": "BRVREAD",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ansyslmd",
+      "port": 1055,
+      "longDesc": "ANSYS - License Manager",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "vfo",
+      "port": 1056,
+      "longDesc": "VFO",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "startron",
+      "port": 1057,
+      "longDesc": "STARTRON",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "nim",
+      "port": 1058,
+      "longDesc": "nim",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "nimreg",
+      "port": 1059,
+      "longDesc": "nimreg",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "polestar",
+      "port": 1060,
+      "longDesc": "POLESTAR",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "kiosk",
+      "port": 1061,
+      "longDesc": "KIOSK",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "veracity",
+      "port": 1062,
+      "longDesc": "Veracity",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "kyoceranetdev",
+      "port": 1063,
+      "longDesc": "KyoceraNetDev",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "jstel",
+      "port": 1064,
+      "longDesc": "JSTEL",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "syscomlan",
+      "port": 1065,
+      "longDesc": "SYSCOMLAN",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "fpo-fns",
+      "port": 1066,
+      "longDesc": "FPO-FNS",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "instl-boots",
+      "port": 1067,
+      "longDesc": "Installation Bootstrap Proto. Serv. IANA assigned this well-formed service name as a replacement for \"instl_boots\".",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "instl-bootc",
+      "port": 1068,
+      "longDesc": "Installation Bootstrap Proto. Cli. IANA assigned this well-formed service name as a replacement for \"instl_bootc\".",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "cognex-insight",
+      "port": 1069,
+      "longDesc": "COGNEX-INSIGHT",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "gmrupdateserv",
+      "port": 1070,
+      "longDesc": "GMRUpdateSERV",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "bsquare-voip",
+      "port": 1071,
+      "longDesc": "BSQUARE-VOIP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "cardax",
+      "port": 1072,
+      "longDesc": "CARDAX",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "bridgecontrol",
+      "port": 1073,
+      "longDesc": "Bridge Control",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "warmspotMgmt",
+      "port": 1074,
+      "longDesc": "Warmspot Management Protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "rdrmshc",
+      "port": 1075,
+      "longDesc": "RDRMSHC",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "dab-sti-c",
+      "port": 1076,
+      "longDesc": "DAB STI-C",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "imgames",
+      "port": 1077,
+      "longDesc": "IMGames",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "avocent-proxy",
+      "port": 1078,
+      "longDesc": "Avocent Proxy Protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "asprovatalk",
+      "port": 1079,
+      "longDesc": "ASPROVATalk",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "socks",
+      "port": 1080,
+      "longDesc": "Socks",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "pvuniwien",
+      "port": 1081,
+      "longDesc": "PVUNIWIEN",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "amt-esd-prot",
+      "port": 1082,
+      "longDesc": "AMT-ESD-PROT",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ansoft-lm-1",
+      "port": 1083,
+      "longDesc": "Anasoft License Manager",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ansoft-lm-2",
+      "port": 1084,
+      "longDesc": "Anasoft License Manager",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "webobjects",
+      "port": 1085,
+      "longDesc": "Web Objects",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "cplscrambler-lg",
+      "port": 1086,
+      "longDesc": "CPL Scrambler Logging",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "cplscrambler-in",
+      "port": 1087,
+      "longDesc": "CPL Scrambler Internal",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "cplscrambler-al",
+      "port": 1088,
+      "longDesc": "CPL Scrambler Alarm Log",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ff-annunc",
+      "port": 1089,
+      "longDesc": "FF Annunciation",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ff-fms",
+      "port": 1090,
+      "longDesc": "FF Fieldbus Message Specification",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ff-sm",
+      "port": 1091,
+      "longDesc": "FF System Management",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "obrpd",
+      "port": 1092,
+      "longDesc": "Open Business Reporting Protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "proofd",
+      "port": 1093,
+      "longDesc": "PROOFD",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "rootd",
+      "port": 1094,
+      "longDesc": "ROOTD",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "nicelink",
+      "port": 1095,
+      "longDesc": "NICELink",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "cnrprotocol",
+      "port": 1096,
+      "longDesc": "Common Name Resolution Protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "sunclustermgr",
+      "port": 1097,
+      "longDesc": "Sun Cluster Manager",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "rmiactivation",
+      "port": 1098,
+      "longDesc": "RMI Activation",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "rmiregistry",
+      "port": 1099,
+      "longDesc": "RMI Registry",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "mctp",
+      "port": 1100,
+      "longDesc": "MCTP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "adobeserver-1",
+      "port": 1102,
+      "longDesc": "ADOBE SERVER 1",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "xrl",
+      "port": 1104,
+      "longDesc": "XRL",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ftranhc",
+      "port": 1105,
+      "longDesc": "FTRANHC",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "isoipsigport-1",
+      "port": 1106,
+      "longDesc": "ISOIPSIGPORT-1",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "isoipsigport-2",
+      "port": 1107,
+      "longDesc": "ISOIPSIGPORT-2",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ratio-adp",
+      "port": 1108,
+      "longDesc": "ratio-adp",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "webadmstart",
+      "port": 1110,
+      "longDesc": "Start web admin server",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "lmsocialserver",
+      "port": 1111,
+      "longDesc": "LM Social Server",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "icp",
+      "port": 1112,
+      "longDesc": "Intelligent Communication Protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ltp-deepspace",
+      "port": 1113,
+      "longDesc": "Licklider Transmission Protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "mini-sql",
+      "port": 1114,
+      "longDesc": "Mini SQL",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ardus-mtrns",
+      "port": 1117,
+      "longDesc": "ARDUS Multicast Transfer",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "bnetgame",
+      "port": 1119,
+      "longDesc": "Battle.net Chat/Game Protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "rmpp",
+      "port": 1121,
+      "longDesc": "Datalode RMPP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "availant-mgr",
+      "port": 1122,
+      "longDesc": "availant-mgr",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "murray",
+      "port": 1123,
+      "longDesc": "Murray",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "hpvmmcontrol",
+      "port": 1124,
+      "longDesc": "HP VMM Control",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "hpvmmdata",
+      "port": 1126,
+      "longDesc": "HP VMM Agent",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "casp",
+      "port": 1130,
+      "longDesc": "CAC App Service Protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "caspssl",
+      "port": 1131,
+      "longDesc": "CAC App Service Protocol Encripted",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "kvm-via-ip",
+      "port": 1132,
+      "longDesc": "KVM-via-IP Management Service",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "trim",
+      "port": 1137,
+      "longDesc": "TRIM Workgroup Service",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "encrypted-admin",
+      "port": 1138,
+      "longDesc": "encrypted admin requests IANA assigned this well-formed service name as a replacement for \"encrypted_admin\".",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "mxomss",
+      "port": 1141,
+      "longDesc": "User Message Service",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "x9-icue",
+      "port": 1145,
+      "longDesc": "X9 iCue Show Control",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "capioverlan",
+      "port": 1147,
+      "longDesc": "CAPIoverLAN",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "elfiq-repl",
+      "port": 1148,
+      "longDesc": "Elfiq Replication Service",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "bvtsonar",
+      "port": 1149,
+      "longDesc": "BlueView Sonar Service",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "unizensus",
+      "port": 1151,
+      "longDesc": "Unizensus Login Server",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "winpoplanmess",
+      "port": 1152,
+      "longDesc": "Winpopup LAN Messenger",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "resacommunity",
+      "port": 1154,
+      "longDesc": "Community Service",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "sddp",
+      "port": 1163,
+      "longDesc": "SmartDialer Data Protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "qsm-proxy",
+      "port": 1164,
+      "longDesc": "QSM Proxy Service",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "qsm-gui",
+      "port": 1165,
+      "longDesc": "QSM GUI Service",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "qsm-remote",
+      "port": 1166,
+      "longDesc": "QSM RemoteExec",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "tripwire",
+      "port": 1169,
+      "longDesc": "TRIPWIRE",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "fnet-remote-ui",
+      "port": 1174,
+      "longDesc": "FlashNet Remote Admin",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "dossier",
+      "port": 1175,
+      "longDesc": "Dossier Server",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "llsurfup-http",
+      "port": 1183,
+      "longDesc": "LL Surfup HTTP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "catchpole",
+      "port": 1185,
+      "longDesc": "Catchpole port",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "mysql-cluster",
+      "port": 1186,
+      "longDesc": "MySQL Cluster Manager",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "alias",
+      "port": 1187,
+      "longDesc": "Alias Service",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "caids-sensor",
+      "port": 1192,
+      "longDesc": "caids sensors channel",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "cajo-discovery",
+      "port": 1198,
+      "longDesc": "cajo reference discovery",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "dmidi",
+      "port": 1199,
+      "longDesc": "DMIDI",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "nucleus-sand",
+      "port": 1201,
+      "longDesc": "Nucleus Sand Database Server",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "mpc-lifenet",
+      "port": 1213,
+      "longDesc": "Medtronic/Physio-Control LIFENET",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "etebac5",
+      "port": 1216,
+      "longDesc": "ETEBAC 5",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "hpss-ndapi",
+      "port": 1217,
+      "longDesc": "HPSS NonDCE Gateway",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "aeroflight-ads",
+      "port": 1218,
+      "longDesc": "AeroFlight-ADs",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "univ-appserver",
+      "port": 1233,
+      "longDesc": "Universal App Server",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "search-agent",
+      "port": 1234,
+      "longDesc": "Infoseek Search Agent",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "bvcontrol",
+      "port": 1236,
+      "longDesc": "bvcontrol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "isbconference1",
+      "port": 1244,
+      "longDesc": "isbconference1",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "visionpyramid",
+      "port": 1247,
+      "longDesc": "VisionPyramid",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "hermes",
+      "port": 1248,
+      "longDesc": "hermes",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "opennl-voice",
+      "port": 1259,
+      "longDesc": "Open Network Library Voice",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "excw",
+      "port": 1271,
+      "longDesc": "eXcW",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "cspmlockmgr",
+      "port": 1272,
+      "longDesc": "CSPMLockMgr",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "miva-mqs",
+      "port": 1277,
+      "longDesc": "mqs",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "routematch",
+      "port": 1287,
+      "longDesc": "RouteMatch Com",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "dproxy",
+      "port": 1296,
+      "longDesc": "dproxy",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "h323hostcallsc",
+      "port": 1300,
+      "longDesc": "H.323 Secure Call Control Signalling",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "jtag-server",
+      "port": 1309,
+      "longDesc": "JTAG server",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "husky",
+      "port": 1310,
+      "longDesc": "Husky",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "rxmon",
+      "port": 1311,
+      "longDesc": "RxMon",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "novation",
+      "port": 1322,
+      "longDesc": "Novation",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ewall",
+      "port": 1328,
+      "longDesc": "EWALL",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "writesrv",
+      "port": 1334,
+      "longDesc": "writesrv",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "lotusnote",
+      "port": 1352,
+      "longDesc": "Lotus Note",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "timbuktu-srv1",
+      "port": 1417,
+      "longDesc": "Timbuktu Service 1 Port",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ms-sql-s",
+      "port": 1433,
+      "longDesc": "Microsoft-SQL-Server",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ms-sql-m",
+      "port": 1434,
+      "longDesc": "Microsoft-SQL-Monitor",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ies-lm",
+      "port": 1443,
+      "longDesc": "Integrated Engineering Software",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "esl-lm",
+      "port": 1455,
+      "longDesc": "ESL License Manager",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ibm-wrless-lan",
+      "port": 1461,
+      "longDesc": "IBM Wireless LAN IANA assigned this well-formed service name as a replacement for \"ibm_wrless_lan\".",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ica",
+      "port": 1494,
+      "longDesc": "ica",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "vlsi-lm",
+      "port": 1500,
+      "longDesc": "VLSI License Manager",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "saiscm",
+      "port": 1501,
+      "longDesc": "Satellite-data Acquisition System 3",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "imtc-mcs",
+      "port": 1503,
+      "longDesc": "Databeam",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ncube-lm",
+      "port": 1521,
+      "longDesc": "nCube License Manager",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ingreslock",
+      "port": 1524,
+      "longDesc": "ingres",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "virtual-places",
+      "port": 1533,
+      "longDesc": "Virtual Places Software",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "veritas-pbx",
+      "port": 1556,
+      "longDesc": "VERITAS Private Branch Exchange IANA assigned this well-formed service name as a replacement for \"veritas_pbx\".",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "tn-tl-r1",
+      "port": 1580,
+      "longDesc": "tn-tl-r1",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "simbaexpress",
+      "port": 1583,
+      "longDesc": "simbaexpress",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "sixtrak",
+      "port": 1594,
+      "longDesc": "sixtrak",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "issd",
+      "port": 1600,
+      "longDesc": "issd",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "invision",
+      "port": 1641,
+      "longDesc": "InVision",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "sixnetudr",
+      "port": 1658,
+      "longDesc": "sixnetudr",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "netview-aix-6",
+      "port": 1666,
+      "longDesc": "netview-aix-6",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "nsjtp-ctrl",
+      "port": 1687,
+      "longDesc": "nsjtp-ctrl",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "nsjtp-data",
+      "port": 1688,
+      "longDesc": "nsjtp-data",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "mps-raft",
+      "port": 1700,
+      "longDesc": "mps-raft",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "fj-hdnet",
+      "port": 1717,
+      "longDesc": "fj-hdnet",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "h323gatedisc",
+      "port": 1718,
+      "longDesc": "H.323 Multicast Gatekeeper Discover",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "h323gatestat",
+      "port": 1719,
+      "longDesc": "H.323 Unicast Gatekeeper Signaling",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "h323hostcall",
+      "port": 1720,
+      "longDesc": "H.323 Call Control Signalling",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "caicci",
+      "port": 1721,
+      "longDesc": "caicci",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "pptp",
+      "port": 1723,
+      "longDesc": "pptp",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ms-streaming",
+      "port": 1755,
+      "longDesc": "ms-streaming",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "cft-0",
+      "port": 1761,
+      "longDesc": "cft-0",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "hp-hcip",
+      "port": 1782,
+      "longDesc": "hp-hcip",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "msmq",
+      "port": 1801,
+      "longDesc": "Microsoft Message Que",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "enl-name",
+      "port": 1805,
+      "longDesc": "ENL-Name",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "radius",
+      "port": 1812,
+      "longDesc": "RADIUS",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "netopia-vo1",
+      "port": 1839,
+      "longDesc": "netopia-vo1",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "netopia-vo2",
+      "port": 1840,
+      "longDesc": "netopia-vo2",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "mysql-cm-agent",
+      "port": 1862,
+      "longDesc": "MySQL Cluster Manager Agent",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "msnp",
+      "port": 1863,
+      "longDesc": "MSNP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "paradym-31port",
+      "port": 1864,
+      "longDesc": "Paradym 31 Port",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "westell-stats",
+      "port": 1875,
+      "longDesc": "westell stats",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ssdp",
+      "port": 1900,
+      "longDesc": "SSDP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "elm-momentum",
+      "port": 1914,
+      "longDesc": "Elm-Momentum",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "macromedia-fcs",
+      "port": 1935,
+      "longDesc": "Macromedia Flash Communications Server MX",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "sentinelsrm",
+      "port": 1947,
+      "longDesc": "SentinelSRM",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "netop-school",
+      "port": 1971,
+      "longDesc": "NetOp School",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "intersys-cache",
+      "port": 1972,
+      "longDesc": "Cache",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "drp",
+      "port": 1974,
+      "longDesc": "DRP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "bb",
+      "port": 1984,
+      "longDesc": "BB",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "x25-svc-port",
+      "port": 1998,
+      "longDesc": "cisco X.25 service (XOT)",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "tcp-id-port",
+      "port": 1999,
+      "longDesc": "cisco identification port",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "cisco-sccp",
+      "port": 2000,
+      "longDesc": "Cisco SCCP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "dc",
+      "port": 2001,
+      "protocol": "tcp"
+    },
+    {
+      "desc": "globe",
+      "port": 2002,
+      "protocol": "tcp"
+    },
+    {
+      "desc": "brutus",
+      "port": 2003,
+      "longDesc": "Brutus Server",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "mailbox",
+      "port": 2004,
+      "protocol": "tcp"
+    },
+    {
+      "desc": "berknet",
+      "port": 2005,
+      "protocol": "tcp"
+    },
+    {
+      "desc": "invokator",
+      "port": 2006,
+      "protocol": "tcp"
+    },
+    {
+      "desc": "dectalk",
+      "port": 2007,
+      "protocol": "tcp"
+    },
+    {
+      "desc": "conf",
+      "port": 2008,
+      "protocol": "tcp"
+    },
+    {
+      "desc": "news",
+      "port": 2009,
+      "protocol": "tcp"
+    },
+    {
+      "desc": "search",
+      "port": 2010,
+      "protocol": "tcp"
+    },
+    {
+      "desc": "raid-am",
+      "port": 2013,
+      "protocol": "tcp"
+    },
+    {
+      "desc": "xinupageserver",
+      "port": 2020,
+      "protocol": "tcp"
+    },
+    {
+      "desc": "servexec",
+      "port": 2021,
+      "protocol": "tcp"
+    },
+    {
+      "desc": "down",
+      "port": 2022,
+      "protocol": "tcp"
+    },
+    {
+      "desc": "device2",
+      "port": 2030,
+      "protocol": "tcp"
+    },
+    {
+      "desc": "glogger",
+      "port": 2033,
+      "protocol": "tcp"
+    },
+    {
+      "desc": "scoremgr",
+      "port": 2034,
+      "protocol": "tcp"
+    },
+    {
+      "desc": "imsldoc",
+      "port": 2035,
+      "protocol": "tcp"
+    },
+    {
+      "desc": "objectmanager",
+      "port": 2038,
+      "protocol": "tcp"
+    },
+    {
+      "desc": "lam",
+      "port": 2040,
+      "protocol": "tcp"
+    },
+    {
+      "desc": "interbase",
+      "port": 2041,
+      "protocol": "tcp"
+    },
+    {
+      "desc": "isis",
+      "port": 2042,
+      "longDesc": "isis",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "isis-bcast",
+      "port": 2043,
+      "longDesc": "isis-bcast",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "cdfunc",
+      "port": 2045,
+      "protocol": "tcp"
+    },
+    {
+      "desc": "sdfunc",
+      "port": 2046,
+      "protocol": "tcp"
+    },
+    {
+      "desc": "dls",
+      "port": 2047,
+      "protocol": "tcp"
+    },
+    {
+      "desc": "dls-monitor",
+      "port": 2048,
+      "protocol": "tcp"
+    },
+    {
+      "desc": "shilp",
+      "port": 2049,
+      "protocol": "tcp"
+    },
+    {
+      "desc": "dlsrpn",
+      "port": 2065,
+      "longDesc": "Data Link Switch Read Port Number",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "avauthsrvprtcl",
+      "port": 2068,
+      "longDesc": "Avocent AuthSrv Protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "h2250-annex-g",
+      "port": 2099,
+      "longDesc": "H.225.0 Annex G Signalling",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "amiganetfs",
+      "port": 2100,
+      "longDesc": "Amiga Network Filesystem",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "zephyr-clt",
+      "port": 2103,
+      "longDesc": "Zephyr serv-hm connection",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "minipay",
+      "port": 2105,
+      "longDesc": "MiniPay",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "mzap",
+      "port": 2106,
+      "longDesc": "MZAP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "bintec-admin",
+      "port": 2107,
+      "longDesc": "BinTec Admin",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "dsatp",
+      "port": 2111,
+      "longDesc": "OPNET Dynamic Sampling Agent Transaction Protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "gsigatekeeper",
+      "port": 2119,
+      "longDesc": "GSIGATEKEEPER",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "scientia-ssdb",
+      "port": 2121,
+      "longDesc": "SCIENTIA-SSDB",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "pktcable-cops",
+      "port": 2126,
+      "longDesc": "PktCable-COPS",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "gris",
+      "port": 2135,
+      "longDesc": "Grid Resource Information Server",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "lv-ffx",
+      "port": 2144,
+      "longDesc": "Live Vault Fast Object Transfer",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "apc-2160",
+      "port": 2160,
+      "longDesc": "APC 2160",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "apc-2161",
+      "port": 2161,
+      "longDesc": "APC 2161",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "eyetv",
+      "port": 2170,
+      "longDesc": "EyeTV Server Port",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "vmrdp",
+      "port": 2179,
+      "longDesc": "Microsoft RDP for virtual machines",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "tivoconnect",
+      "port": 2190,
+      "longDesc": "TiVoConnect Beacon",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "tvbus",
+      "port": 2191,
+      "longDesc": "TvBus Messaging",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "EtherNet-IP-1",
+      "port": 2222,
+      "longDesc": "EtherNet/IP I/O IANA assigned this well-formed service name as a replacement for \"EtherNet/IP-1\".",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "dif-port",
+      "port": 2251,
+      "longDesc": "Distributed Framework Port",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "apc-2260",
+      "port": 2260,
+      "longDesc": "APC 2260",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "netml",
+      "port": 2288,
+      "longDesc": "NETML",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "cpq-wbem",
+      "port": 2301,
+      "longDesc": "Compaq HTTP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "3d-nfsd",
+      "port": 2323,
+      "longDesc": "3d-nfsd",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "qip-login",
+      "port": 2366,
+      "longDesc": "qip-login",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "compaq-https",
+      "port": 2381,
+      "longDesc": "Compaq HTTPS",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ms-olap3",
+      "port": 2382,
+      "longDesc": "Microsoft OLAP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ms-olap4",
+      "port": 2383,
+      "longDesc": "Microsoft OLAP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ms-olap1",
+      "port": 2393,
+      "longDesc": "MS OLAP 1",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ms-olap2",
+      "port": 2394,
+      "longDesc": "MS OLAP 2",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "fmpro-fdal",
+      "port": 2399,
+      "longDesc": "FileMaker, Inc. - Data Access Layer",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "cvspserver",
+      "port": 2401,
+      "longDesc": "cvspserver",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "groove",
+      "port": 2492,
+      "longDesc": "GROOVE",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "rtsserv",
+      "port": 2500,
+      "longDesc": "Resource Tracking system server",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "windb",
+      "port": 2522,
+      "longDesc": "WinDb",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ms-v-worlds",
+      "port": 2525,
+      "longDesc": "MS V-Worlds",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "nicetec-mgmt",
+      "port": 2557,
+      "longDesc": "nicetec-mgmt",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "discp-client",
+      "port": 2601,
+      "longDesc": "discp client",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "discp-server",
+      "port": 2602,
+      "longDesc": "discp server",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "nsc-ccs",
+      "port": 2604,
+      "longDesc": "NSC CCS",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "nsc-posa",
+      "port": 2605,
+      "longDesc": "NSC POSA",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "connection",
+      "port": 2607,
+      "longDesc": "Dell Connection",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "wag-service",
+      "port": 2608,
+      "longDesc": "Wag Service",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "sybaseanywhere",
+      "port": 2638,
+      "longDesc": "Sybase Anywhere",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "sms-rcinfo",
+      "port": 2701,
+      "longDesc": "SMS RCINFO",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "sms-xfer",
+      "port": 2702,
+      "longDesc": "SMS XFER",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "sso-service",
+      "port": 2710,
+      "longDesc": "SSO Service",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "pn-requester",
+      "port": 2717,
+      "longDesc": "PN REQUESTER",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "pn-requester2",
+      "port": 2718,
+      "longDesc": "PN REQUESTER 2",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "msolap-ptp2",
+      "port": 2725,
+      "longDesc": "MSOLAP PTP2",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "acc-raid",
+      "port": 2800,
+      "longDesc": "ACC RAID",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "corbaloc",
+      "port": 2809,
+      "longDesc": "CORBA LOC",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "gsiftp",
+      "port": 2811,
+      "longDesc": "GSI FTP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "icslap",
+      "port": 2869,
+      "longDesc": "ICSLAP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "dxmessagebase2",
+      "port": 2875,
+      "longDesc": "DX Message Base Transport Protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "funk-dialout",
+      "port": 2909,
+      "longDesc": "Funk Dialout",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "tdaccess",
+      "port": 2910,
+      "longDesc": "TDAccess",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "roboeda",
+      "port": 2920,
+      "longDesc": "roboEDA",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ssc-agent",
+      "port": 2967,
+      "longDesc": "SSC-AGENT",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "enpp",
+      "port": 2968,
+      "longDesc": "ENPP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "realsecure",
+      "port": 2998,
+      "longDesc": "Real Secure",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "hbci",
+      "port": 3000,
+      "longDesc": "HBCI",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "origo-native",
+      "port": 3001,
+      "longDesc": "OrigoDB Server Native Interface",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "cgms",
+      "port": 3003,
+      "longDesc": "CGMS",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "geniuslm",
+      "port": 3005,
+      "longDesc": "Genius License Manager",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ii-admin",
+      "port": 3006,
+      "longDesc": "Instant Internet Admin",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "lotusmtap",
+      "port": 3007,
+      "longDesc": "Lotus Mail Tracking Agent Protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "trusted-web",
+      "port": 3011,
+      "longDesc": "Trusted Web",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "gilatskysurfer",
+      "port": 3013,
+      "longDesc": "Gilat Sky Surfer",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "event-listener",
+      "port": 3017,
+      "longDesc": "Event Listener IANA assigned this well-formed service name as a replacement for \"event_listener\".",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "arepa-cas",
+      "port": 3030,
+      "longDesc": "Arepa Cas",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "eppc",
+      "port": 3031,
+      "longDesc": "Remote AppleEvents/PPC Toolbox",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "apc-3052",
+      "port": 3052,
+      "longDesc": "APC 3052",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "xplat-replicate",
+      "port": 3071,
+      "longDesc": "Crossplatform replication protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "orbix-loc-ssl",
+      "port": 3077,
+      "longDesc": "Orbix 2000 Locator SSL",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ndl-aas",
+      "port": 3128,
+      "longDesc": "Active API Server Port",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "poweronnud",
+      "port": 3168,
+      "longDesc": "Now Up-to-Date Public Server",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "avsecuremgmt",
+      "port": 3211,
+      "longDesc": "Avocent Secure Management",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "xnm-clear-text",
+      "port": 3221,
+      "longDesc": "XML NM over TCP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "iscsi-target",
+      "port": 3260,
+      "longDesc": "iSCSI port",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "winshadow",
+      "port": 3261,
+      "longDesc": "winShadow",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "msft-gc",
+      "port": 3268,
+      "longDesc": "Microsoft Global Catalog",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "msft-gc-ssl",
+      "port": 3269,
+      "longDesc": "Microsoft Global Catalog with LDAP/SSL",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "Apple Remote Desktop (Net Assistant)",
+      "port": 3283,
+      "longDesc": "Net Assistant",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ceph",
+      "port": 3300,
+      "longDesc": "Ceph monitor",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "mysql",
+      "port": 3306,
+      "longDesc": "MySQL",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "dec-notes",
+      "port": 3333,
+      "longDesc": "DEC Notes",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "btrieve",
+      "port": 3351,
+      "longDesc": "Btrieve port",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "tip2",
+      "port": 3372,
+      "longDesc": "TIP 2",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ms-wbt-server",
+      "port": 3389,
+      "longDesc": "MS WBT Server",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "dsc",
+      "port": 3390,
+      "longDesc": "Distributed Service Coordinator",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "nppmp",
+      "port": 3476,
+      "longDesc": "NVIDIA Mgmt Protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "nut",
+      "port": 3493,
+      "longDesc": "Network UPS Tools",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "802-11-iapp",
+      "port": 3517,
+      "longDesc": "IEEE 802.11 WLANs WG IAPP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "beserver-msg-q",
+      "port": 3527,
+      "longDesc": "VERITAS Backup Exec Server",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "apcupsd",
+      "port": 3551,
+      "longDesc": "Apcupsd Information Port",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "nati-svrloc",
+      "port": 3580,
+      "longDesc": "NATI-ServiceLocator",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "apple-sasl",
+      "port": 3659,
+      "longDesc": "Apple SASL",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "daap",
+      "port": 3689,
+      "longDesc": "Digital Audio Access Protocol (iTunes)",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "svn",
+      "port": 3690,
+      "longDesc": "Subversion",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "adobeserver-3",
+      "port": 3703,
+      "longDesc": "Adobe Server 3",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "xpanel",
+      "port": 3737,
+      "longDesc": "XPanel Daemon",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "sitewatch-s",
+      "port": 3766,
+      "longDesc": "SSL e-watch sitewatch server",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "bfd-control",
+      "port": 3784,
+      "longDesc": "BFD Control Protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "pwgpsi",
+      "port": 3800,
+      "longDesc": "Print Services Interface",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ibm-mgr",
+      "port": 3801,
+      "longDesc": "ibm manager service",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "apocd",
+      "port": 3809,
+      "longDesc": "Java Desktop System Configuration Agent",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "neto-dcs",
+      "port": 3814,
+      "longDesc": "netO DCS",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "warmux",
+      "port": 3826,
+      "longDesc": "WarMUX game server",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "netmpi",
+      "port": 3827,
+      "longDesc": "Netadmin Systems MPI service",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "neteh",
+      "port": 3828,
+      "longDesc": "Netadmin Systems Event Handler",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "spectraport",
+      "port": 3851,
+      "longDesc": "SpectraTalk Port",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ovsam-mgmt",
+      "port": 3869,
+      "longDesc": "hp OVSAM MgmtServer Disco",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "avocent-adsap",
+      "port": 3871,
+      "longDesc": "Avocent DS Authorization",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "fotogcad",
+      "port": 3878,
+      "longDesc": "FotoG CAD interface",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "igrs",
+      "port": 3880,
+      "longDesc": "IGRS",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "dandv-tester",
+      "port": 3889,
+      "longDesc": "D and V Tester Control Port",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "mupdate",
+      "port": 3905,
+      "longDesc": "Mailbox Update (MUPDATE) protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "listcrt-port-2",
+      "port": 3914,
+      "longDesc": "ListCREATOR Port 2",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "pktcablemmcops",
+      "port": 3918,
+      "longDesc": "PacketCableMultimediaCOPS",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "exasoftport1",
+      "port": 3920,
+      "longDesc": "Exasoft IP Port",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "emcads",
+      "port": 3945,
+      "longDesc": "EMCADS Server Port",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "lanrevserver",
+      "port": 3971,
+      "longDesc": "LANrev Server",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "mapper-ws-ethd",
+      "port": 3986,
+      "longDesc": "MAPPER workstation server IANA assigned this well-formed service name as a replacement for \"mapper-ws_ethd\".",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "iss-mgmt-ssl",
+      "port": 3995,
+      "longDesc": "ISS Management Svcs SSL",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "dnx",
+      "port": 3998,
+      "longDesc": "Distributed Nagios Executor Service",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "terabase",
+      "port": 4000,
+      "longDesc": "Terabase",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "newoak",
+      "port": 4001,
+      "longDesc": "NewOak",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "pxc-spvr-ft",
+      "port": 4002,
+      "longDesc": "pxc-spvr-ft",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "pxc-splr-ft",
+      "port": 4003,
+      "longDesc": "pxc-splr-ft",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "pxc-roid",
+      "port": 4004,
+      "longDesc": "pxc-roid",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "pxc-pin",
+      "port": 4005,
+      "longDesc": "pxc-pin",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "pxc-spvr",
+      "port": 4006,
+      "longDesc": "pxc-spvr",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "npp",
+      "port": 4045,
+      "longDesc": "Network Paging Protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "xgrid",
+      "port": 4111,
+      "longDesc": "Xgrid",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "opsview-envoy",
+      "port": 4125,
+      "longDesc": "Opsview Envoy",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ddrepl",
+      "port": 4126,
+      "longDesc": "Data Domain Replication Service",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "nuauth",
+      "port": 4129,
+      "longDesc": "NuFW authentication protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "rwhois",
+      "port": 4321,
+      "longDesc": "Remote Who Is",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "unicall",
+      "port": 4343,
+      "longDesc": "UNICALL",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "pharos",
+      "port": 4443,
+      "longDesc": "Pharos",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "krb524",
+      "port": 4444,
+      "longDesc": "KRB524",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "upnotifyp",
+      "port": 4445,
+      "longDesc": "UPNOTIFYP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "n1-fwp",
+      "port": 4446,
+      "longDesc": "N1-FWP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "privatewire",
+      "port": 4449,
+      "longDesc": "PrivateWire",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "gds-adppiw-db",
+      "port": 4550,
+      "longDesc": "Perman I Interbase Server",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "tram",
+      "port": 4567,
+      "longDesc": "TRAM",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "oms",
+      "port": 4662,
+      "longDesc": "OrbitNet Message Service",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "appserv-http",
+      "port": 4848,
+      "longDesc": "App Server - Admin HTTP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "radmin-port",
+      "port": 4899,
+      "longDesc": "RAdmin Port",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "hfcs",
+      "port": 4900,
+      "longDesc": "HFSQL Client/Server Database Engine",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "commplex-main",
+      "port": 5000,
+      "protocol": "tcp"
+    },
+    {
+      "desc": "commplex-link",
+      "port": 5001,
+      "protocol": "tcp"
+    },
+    {
+      "desc": "rfe",
+      "port": 5002,
+      "longDesc": "radio free ethernet",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "fmpro-internal",
+      "port": 5003,
+      "longDesc": "FileMaker, Inc. - Proprietary transport",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "avt-profile-1",
+      "port": 5004,
+      "longDesc": "RTP media data",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "winfs",
+      "port": 5009,
+      "longDesc": "Microsoft Windows Filesystem",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "surfpass",
+      "port": 5030,
+      "longDesc": "SurfPass",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "jtnetd-server",
+      "port": 5033,
+      "longDesc": "Janstor Secure Data",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "mmcc",
+      "port": 5050,
+      "longDesc": "multimedia conference control tool",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ita-agent",
+      "port": 5051,
+      "longDesc": "ITA Agent",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "rlm-admin",
+      "port": 5054,
+      "longDesc": "RLM administrative interface",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "sip",
+      "port": 5060,
+      "longDesc": "SIP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "sips",
+      "port": 5061,
+      "longDesc": "SIP-TLS",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "onscreen",
+      "port": 5080,
+      "longDesc": "OnScreen Data Collection Service",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "biotic",
+      "port": 5087,
+      "longDesc": "BIOTIC - Binary Internet of Things Interoperable Communication",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "socalia",
+      "port": 5100,
+      "longDesc": "Socalia service mux",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "talarian-tcp",
+      "port": 5101,
+      "longDesc": "Talarian_TCP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "oms-nonsecure",
+      "port": 5102,
+      "longDesc": "Oracle OMS non-secure",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "barracuda-bbs",
+      "port": 5120,
+      "longDesc": "Barracuda Backup Protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "aol",
+      "port": 5190,
+      "longDesc": "America-Online",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "targus-getdata",
+      "port": 5200,
+      "longDesc": "TARGUS GetData",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "3exmp",
+      "port": 5221,
+      "longDesc": "3eTI Extensible Management Protocol for OAMP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "xmpp-client",
+      "port": 5222,
+      "longDesc": "XMPP Client Connection",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "hp-server",
+      "port": 5225,
+      "longDesc": "HP Server",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "hp-status",
+      "port": 5226,
+      "longDesc": "HP Status",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "xmpp-server",
+      "port": 5269,
+      "longDesc": "XMPP Server Connection",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "xmpp-bosh",
+      "port": 5280,
+      "longDesc": "Bidirectional-streams Over Synchronous HTTP (BOSH)",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "presence",
+      "port": 5298,
+      "longDesc": "XMPP Link-Local Messaging",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "wsdapi",
+      "port": 5357,
+      "longDesc": "Web Services for Devices",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "netsupport",
+      "port": 5405,
+      "longDesc": "NetSupport",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "statusd",
+      "port": 5414,
+      "longDesc": "StatusD",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "park-agent",
+      "port": 5431,
+      "longDesc": "PARK AGENT",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "postgresql",
+      "port": 5432,
+      "longDesc": "PostgreSQL Database",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "fcp-addr-srvr1",
+      "port": 5500,
+      "longDesc": "fcp-addr-srvr1",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "cbus",
+      "port": 5550,
+      "longDesc": "Model Railway control using the CBUS message protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "personal-agent",
+      "port": 5555,
+      "longDesc": "Personal Agent",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "westec-connect",
+      "port": 5566,
+      "longDesc": "Westec Connect",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "pcanywheredata",
+      "port": 5631,
+      "longDesc": "pcANYWHEREdata",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "beorl",
+      "port": 5633,
+      "longDesc": "BE Operations Request Listener",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "nrpe",
+      "port": 5666,
+      "longDesc": "Nagios Remote Plugin Executor",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "rrac",
+      "port": 5678,
+      "longDesc": "Remote Replication Agent Connection",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "dccm",
+      "port": 5679,
+      "longDesc": "Direct Cable Connect Manager",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "dpm",
+      "port": 5718,
+      "longDesc": "DPM Communication Server",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "unieng",
+      "port": 5730,
+      "longDesc": "Steltor's calendar access",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "wherehoo",
+      "port": 5859,
+      "longDesc": "WHEREHOO",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "rfb",
+      "port": 5900,
+      "longDesc": "Remote Framebuffer",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "cm",
+      "port": 5910,
+      "longDesc": "Context Management",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "cpdlc",
+      "port": 5911,
+      "longDesc": "Controller Pilot Data Link Communication",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "indy",
+      "port": 5963,
+      "longDesc": "Indy Application Server",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "wbem-rmi",
+      "port": 5987,
+      "longDesc": "WBEM RMI",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "wbem-http",
+      "port": 5988,
+      "longDesc": "WBEM CIM-XML (HTTP)",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "wbem-https",
+      "port": 5989,
+      "longDesc": "WBEM CIM-XML (HTTPS)",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "cvsup",
+      "port": 5999,
+      "longDesc": "CVSup",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "synchronet-db",
+      "port": 6100,
+      "longDesc": "SynchroNet-db",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "synchronet-rtc",
+      "port": 6101,
+      "longDesc": "SynchroNet-rtc",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "mpsserver",
+      "port": 6106,
+      "longDesc": "MPS Server",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "dtspcd",
+      "port": 6112,
+      "longDesc": "Desk-Top Sub-Process Control Daemon",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "backup-express",
+      "port": 6123,
+      "longDesc": "Backup Express",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "gnutella-svc",
+      "port": 6346,
+      "longDesc": "gnutella-svc",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "clariion-evr01",
+      "port": 6389,
+      "longDesc": "clariion-evr01",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "boks-servm",
+      "port": 6502,
+      "longDesc": "BoKS Servm IANA assigned this well-formed service name as a replacement for \"boks_servm\".",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "mcer-port",
+      "port": 6510,
+      "longDesc": "MCER Port",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "lds-distrib",
+      "port": 6543,
+      "longDesc": "lds_distrib",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "apc-6547",
+      "port": 6547,
+      "longDesc": "APC 6547",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "sane-port",
+      "port": 6566,
+      "longDesc": "SANE Control Port",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "parsec-master",
+      "port": 6580,
+      "longDesc": "Parsec Masterserver",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "tsa",
+      "port": 6689,
+      "longDesc": "Tofino Security Appliance",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "smc-http",
+      "port": 6788,
+      "longDesc": "SMC-HTTP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "radg",
+      "port": 6789,
+      "longDesc": "GSS-API for the Oracle Remote Administration Daemon",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "jetstream",
+      "port": 6901,
+      "longDesc": "Novell Jetstream messaging protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "acmsoda",
+      "port": 6969,
+      "longDesc": "acmsoda",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "afs3-fileserver",
+      "port": 7000,
+      "longDesc": "file server itself",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "afs3-callback",
+      "port": 7001,
+      "longDesc": "callbacks to cache managers",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "afs3-prserver",
+      "port": 7002,
+      "longDesc": "users & groups database",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "afs3-kaserver",
+      "port": 7004,
+      "longDesc": "AFS/Kerberos authentication service",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "afs3-bos",
+      "port": 7007,
+      "longDesc": "basic overseer process",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "doceri-ctl",
+      "port": 7019,
+      "longDesc": "doceri drawing service control",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "vmsvc-2",
+      "port": 7025,
+      "longDesc": "Vormetric Service II",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "arcp",
+      "port": 7070,
+      "longDesc": "ARCP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "font-service",
+      "port": 7100,
+      "longDesc": "X Font Service",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "fodms",
+      "port": 7200,
+      "longDesc": "FODMS FLIP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "dlip",
+      "port": 7201,
+      "longDesc": "DLIP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "rtps-dd-mt",
+      "port": 7402,
+      "longDesc": "RTPS Data-Distribution Meta-Traffic",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "oracleas-https",
+      "port": 7443,
+      "longDesc": "Oracle Application Server HTTPS",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "soap-http",
+      "port": 7627,
+      "longDesc": "SOAP Service Port",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "imqbrokerd",
+      "port": 7676,
+      "longDesc": "iMQ Broker Rendezvous",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "scriptview",
+      "port": 7741,
+      "longDesc": "ScriptView Network",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "cbt",
+      "port": 7777,
+      "longDesc": "cbt",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "interwise",
+      "port": 7778,
+      "longDesc": "Interwise",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "asr",
+      "port": 7800,
+      "longDesc": "Apple Software Restore",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "irdmi2",
+      "port": 7999,
+      "longDesc": "iRDMI2",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "irdmi",
+      "port": 8000,
+      "longDesc": "iRDMI",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "vcom-tunnel",
+      "port": 8001,
+      "longDesc": "VCOM Tunnel",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "teradataordbms",
+      "port": 8002,
+      "longDesc": "Teradata ORDBMS",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "warppipe",
+      "port": 8007,
+      "longDesc": "I/O oriented cluster computing software",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "http-alt",
+      "port": 8008,
+      "longDesc": "HTTP Alternate",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "nvme-disc",
+      "port": 8009,
+      "longDesc": "NVMe over Fabrics Discovery Service",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "intu-ec-client",
+      "port": 8021,
+      "longDesc": "Intuit Entitlement Client",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "oa-system",
+      "port": 8022,
+      "longDesc": "oa-system",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "fs-agent",
+      "port": 8042,
+      "longDesc": "FireScope Agent",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "http-alt",
+      "port": 8080,
+      "longDesc": "HTTP Alternate (see port 80)",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "sunproxyadmin",
+      "port": 8081,
+      "longDesc": "Sun Proxy Admin Service",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "us-cli",
+      "port": 8082,
+      "longDesc": "Utilistor (Client)",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "us-srv",
+      "port": 8083,
+      "longDesc": "Utilistor (Server)",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "websnp",
+      "port": 8084,
+      "longDesc": "Snarl Network Protocol over HTTP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "d-s-n",
+      "port": 8086,
+      "longDesc": "Distributed SCADA Networking Rendezvous Port",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "simplifymedia",
+      "port": 8087,
+      "longDesc": "Simplify Media SPP Protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "radan-http",
+      "port": 8088,
+      "longDesc": "Radan HTTP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "opsmessaging",
+      "port": 8090,
+      "longDesc": "Vehicle to station messaging",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "xprint-server",
+      "port": 8100,
+      "longDesc": "Xprint Server",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "intermapper",
+      "port": 8181,
+      "longDesc": "Intermapper network management system",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "spytechphone",
+      "port": 8192,
+      "longDesc": "SpyTech Phone Service",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "blp1",
+      "port": 8194,
+      "longDesc": "Bloomberg data API",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "trivnet1",
+      "port": 8200,
+      "longDesc": "TRIVNET",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "blp3",
+      "port": 8292,
+      "longDesc": "Bloomberg professional",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "tmi",
+      "port": 8300,
+      "longDesc": "Transport Management Interface",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "m2mservices",
+      "port": 8383,
+      "longDesc": "M2m Services",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "cvd",
+      "port": 8400,
+      "longDesc": "cvd",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "abarsd",
+      "port": 8402,
+      "longDesc": "abarsd",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "pcsync-https",
+      "port": 8443,
+      "longDesc": "PCsync HTTPS",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "fmtp",
+      "port": 8500,
+      "longDesc": "Flight Message Transfer Protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "asterix",
+      "port": 8600,
+      "longDesc": "Surveillance Data",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "sunwebadmin",
+      "port": 8800,
+      "longDesc": "Sun Web Server Admin Service",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "dxspider",
+      "port": 8873,
+      "longDesc": "dxspider linking protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ddi-tcp-1",
+      "port": 8888,
+      "longDesc": "NewsEDGE server TCP (TCP 1)",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ospf-lite",
+      "port": 8899,
+      "longDesc": "ospf-lite",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "cslistener",
+      "port": 9000,
+      "longDesc": "CSlistener",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "etlservicemgr",
+      "port": 9001,
+      "longDesc": "ETL Service Manager",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "dynamid",
+      "port": 9002,
+      "longDesc": "DynamID authentication",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "pichat",
+      "port": 9009,
+      "longDesc": "Pichat Server",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "sdr",
+      "port": 9010,
+      "longDesc": "Secure Data Replicator Protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "versiera",
+      "port": 9050,
+      "longDesc": "Versiera Agent Listener",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "glrpc",
+      "port": 9080,
+      "longDesc": "Groove GLRPC",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "websm",
+      "port": 9090,
+      "longDesc": "WebSM",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "xmltec-xmlmail",
+      "port": 9091,
+      "longDesc": "xmltec-xmlmail",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "hp-pdl-datastr",
+      "port": 9100,
+      "longDesc": "PDL Data Streaming Port",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "bacula-dir",
+      "port": 9101,
+      "longDesc": "Bacula Director",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "bacula-fd",
+      "port": 9102,
+      "longDesc": "Bacula File Daemon",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "bacula-sd",
+      "port": 9103,
+      "longDesc": "Bacula Storage Daemon",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "hexxorecore",
+      "port": 9111,
+      "longDesc": "Multiple Purpose, Distributed Message Bus",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "wap-wsp",
+      "port": 9200,
+      "longDesc": "WAP connectionless session service",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "wap-vcal-s",
+      "port": 9207,
+      "longDesc": "WAP vCal Secure",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "git",
+      "port": 9418,
+      "longDesc": "git pack transfer service",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ismserver",
+      "port": 9500,
+      "longDesc": "ismserver",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "mngsuite",
+      "port": 9535,
+      "longDesc": "Management Suite Remote Control",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "cba8",
+      "port": 9593,
+      "longDesc": "LANDesk Management Agent (cba8)",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "msgsys",
+      "port": 9594,
+      "longDesc": "Message System",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "pds",
+      "port": 9595,
+      "longDesc": "Ping Discovery Service",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "condor",
+      "port": 9618,
+      "longDesc": "Condor Collector Service",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "zoomcp",
+      "port": 9666,
+      "longDesc": "Zoom Control Panel Game Server Management",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "sd",
+      "port": 9876,
+      "longDesc": "Session Director",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "x510",
+      "port": 9877,
+      "longDesc": "The X.510 wrapper protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "monkeycom",
+      "port": 9898,
+      "longDesc": "MonkeyCom",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "iua",
+      "port": 9900,
+      "longDesc": "IUA",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "distinct32",
+      "port": 9998,
+      "longDesc": "Distinct32",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "distinct",
+      "port": 9999,
+      "longDesc": "distinct",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ndmp",
+      "port": 10000,
+      "longDesc": "Network Data Management Protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "scp-config",
+      "port": 10001,
+      "longDesc": "SCP Configuration",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "documentum",
+      "port": 10002,
+      "longDesc": "EMC-Documentum Content Server Product",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "documentum-s",
+      "port": 10003,
+      "longDesc": "EMC-Documentum Content Server Product IANA assigned this well-formed service name as a replacement for \"documentum_s\".",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "emcrmirccd",
+      "port": 10004,
+      "longDesc": "EMC Replication Manager Client",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "swdtp-sv",
+      "port": 10009,
+      "longDesc": "Systemwalker Desktop Patrol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "rxapi",
+      "port": 10010,
+      "longDesc": "ooRexx rxapi services",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "sgi-soap",
+      "port": 11110,
+      "longDesc": "Data migration facility (DMF) SOAP is a web server protocol to support remote access to DMF",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "vce",
+      "port": 11111,
+      "longDesc": "Viral Computing Environment (VCE)",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "sysinfo-sp",
+      "port": 11967,
+      "longDesc": "SysInfo Service Protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "entextxid",
+      "port": 12000,
+      "longDesc": "IBM Enterprise Extender SNA XID Exchange",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "italk",
+      "port": 12345,
+      "longDesc": "Italk Chat System",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "bpjava-msvc",
+      "port": 13722,
+      "longDesc": "BP Java MSVC Protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "bpcd",
+      "port": 13782,
+      "longDesc": "VERITAS NetBackup",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "vopied",
+      "port": 13783,
+      "longDesc": "VOPIED Protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "scotty-ft",
+      "port": 14000,
+      "longDesc": "SCOTTY High-Speed Filetransfer",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "hydap",
+      "port": 15000,
+      "longDesc": "Hypack Data Aquisition",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "onep-tls",
+      "port": 15002,
+      "longDesc": "Open Network Environment TLS",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "bex-xr",
+      "port": 15660,
+      "longDesc": "Backup Express Restore Server",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "fmsas",
+      "port": 16000,
+      "longDesc": "Administration Server Access",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "fmsascon",
+      "port": 16001,
+      "longDesc": "Administration Server Connector",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "amt-soap-http",
+      "port": 16992,
+      "longDesc": "Intel(R) AMT SOAP/HTTP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "amt-soap-https",
+      "port": 16993,
+      "longDesc": "Intel(R) AMT SOAP/HTTPS",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "keysrvr",
+      "port": 19283,
+      "longDesc": "Key Server for SASSAFRAS",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "keyshadow",
+      "port": 19315,
+      "longDesc": "Key Shadow for SASSAFRAS",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "dnp",
+      "port": 20000,
+      "longDesc": "DNP",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "openwebnet",
+      "port": 20005,
+      "longDesc": "OpenWebNet protocol for electric network",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ipulse-ics",
+      "port": 20222,
+      "longDesc": "iPulse-ICS",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "ndmps",
+      "port": 30000,
+      "longDesc": "Secure Network Data Management Protocol",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "filenet-tms",
+      "port": 32768,
+      "longDesc": "Filenet TMS",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "filenet-rpc",
+      "port": 32769,
+      "longDesc": "Filenet RPC",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "filenet-nch",
+      "port": 32770,
+      "longDesc": "Filenet NCH",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "filenet-rmi",
+      "port": 32771,
+      "longDesc": "FileNET RMI",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "filenet-pa",
+      "port": 32772,
+      "longDesc": "FileNET Process Analyzer",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "filenet-cm",
+      "port": 32773,
+      "longDesc": "FileNET Component Manager",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "filenet-re",
+      "port": 32774,
+      "longDesc": "FileNET Rules Engine",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "filenet-pch",
+      "port": 32775,
+      "longDesc": "Performance Clearinghouse",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "filenet-peior",
+      "port": 32776,
+      "longDesc": "FileNET BPM IOR",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "filenet-obrok",
+      "port": 32777,
+      "longDesc": "FileNet BPM CORBA",
+      "protocol": "tcp"
+    },
+    {
+      "desc": "caerpc",
+      "port": 42510,
+      "longDesc": "CA eTrust RPC",
+      "protocol": "tcp"
     }
   ],
   "cloudflareIps": [

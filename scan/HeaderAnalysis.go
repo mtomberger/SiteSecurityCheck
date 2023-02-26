@@ -12,16 +12,6 @@ type headerInfo struct {
 	CalculateRating func(headerInfo, string) data.HeaderRating
 }
 
-/*
-// Analyze the security-related headers
-
-headers = append(headers, analyzeHeader(resp.Header, "X-Frame-Options"))
-headers = append(headers, analyzeHeader(resp.Header, "X-XSS-Protection"))
-headers = append(headers, analyzeHeader(resp.Header, "X-Content-Type-Options"))
-headers = append(headers, analyzeHeader(resp.Header, "Content-Security-Policy"))
-headers = append(headers, analyzeHeader(resp.Header, "Referrer-Policy"))
-headers = append(headers, analyzeHeader(resp.Header, "Permissions-Policy"))
-*/
 const notSetText = "Header was not set"
 const docLinkBase = "https://developer.mozilla.org/Web/HTTP/Headers/"
 

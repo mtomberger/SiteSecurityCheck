@@ -2,25 +2,15 @@ package scan
 
 import (
 	"SiteSecurityCheck/data"
+	"SiteSecurityCheck/out"
 	"SiteSecurityCheck/utility"
 	"fmt"
 	"net"
+	"strconv"
+	"strings"
 	"sync"
 	"time"
 )
-
-// KnownPorts struct for Describing ports
-type PortScanConfig struct {
-	Threads        int `json:"threads"`
-	TimeoutSeconds int `json:"timeoutSeconds"`
-	PortRangeStart int `json:"portRangeStart"`
-	PortRangeStop  int `json:"portRangeStop"`
-	Ports          []struct {
-		Desc string `json:"desc"`
-		Port int    `json:"port"`
-	} `json:"ports"`
-	CloudflareIps []string `json:"cloudflareIps"`
-}
 
 // PortScanner struct for NewPortScanner function
 type PortScanner struct {
@@ -28,11 +18,15 @@ type PortScanner struct {
 	timeout time.Duration
 	threads int
 }
+type Port struct {
+	port     int
+	protocol string
+}
 
 func getIp(url string) string {
 	ipaddrs, err := net.LookupIP(url)
 	if err != nil {
-		panic(err)
+		return ""
 	}
 	if len(ipaddrs) < 1 {
 		panic("no ip for URL " + url)
@@ -41,6 +35,9 @@ func getIp(url string) string {
 }
 func IsCloudflare(url string, conf utility.ScanConfig) bool {
 	ipaddr := getIp(url)
+	if len(ipaddr) == 0 {
+		return false
+	}
 	for _, c := range conf.CloudflareIps {
 		if c == "" {
 			continue
@@ -88,62 +85,136 @@ func inc(ip net.IP) {
 func StartPortScan(url string, conf utility.ScanConfig) []data.FoundPort {
 	return scanHost(getIp(url), conf)
 }
+func getPorts(conf utility.ScanConfig) []Port {
+	var ports []Port
+	tcp := getPortRange(conf.PortRangeTCP)
+	udp := getPortRange(conf.PortRangeUDP)
+	for _, t := range tcp {
+		ports = append(ports, Port{
+			port:     t,
+			protocol: "TCP",
+		})
+	}
+	for _, t := range udp {
+		ports = append(ports, Port{
+			port:     t,
+			protocol: "UDP",
+		})
+	}
+	return ports
+
+}
+func getPortRange(portRangeStr string) []int {
+	var portRange []int
+	if len(portRangeStr) == 0 {
+		return portRange
+	}
+	ranges := strings.Split(portRangeStr, ",")
+	var invalidRanges []string
+	for _, r := range ranges {
+		borders := strings.Split(r, "-")
+		if len(borders) == 2 {
+			pS, errS := strconv.Atoi(strings.TrimSpace(borders[0]))
+			pE, errP := strconv.Atoi(strings.TrimSpace(borders[1]))
+			if errS == nil && errP == nil && pS <= pE {
+				for i := pS; i < pE; i++ {
+					portRange = append(portRange, i)
+				}
+			} else {
+				invalidRanges = append(invalidRanges, r)
+			}
+		} else if len(borders) == 1 {
+			p, err := strconv.Atoi(strings.TrimSpace(borders[0]))
+			if err == nil {
+				portRange = append(portRange, p)
+			} else {
+				invalidRanges = append(invalidRanges, r)
+			}
+		}
+	}
+	if len(invalidRanges) > 0 {
+		m := ""
+		if len(invalidRanges) > 1 {
+			m = "s"
+		}
+		out.PrintError("%d invalid range%s in portRange config: '%s'", len(invalidRanges), m, strings.Join(invalidRanges, "','"))
+	}
+	return utility.RemoveDuplicateInt(portRange)
+}
 
 func scanHost(host string, conf utility.ScanConfig) []data.FoundPort {
+	var describedPorts []data.FoundPort
+	if len(host) == 0 {
+		return nil
+	}
 	ps := newPortScanner(host, time.Duration(conf.TimeoutSeconds)*time.Second, conf.Threads)
+	openedPorts := ps.getOpenedPort(getPorts(conf))
 
-	openedPorts := ps.getOpenedPort(conf.PortRangeStart, conf.PortRangeStop)
-	var descripedPorts []data.FoundPort
 	for i := 0; i < len(openedPorts); i++ {
 		var port = openedPorts[i]
-		descripedPorts = append(descripedPorts, data.FoundPort{
-			Port:     port,
-			Protocol: descripePort(port, conf),
-			Status:   "open",
+		var shDesc, longDesc = descripePort(port, conf)
+		describedPorts = append(describedPorts, data.FoundPort{
+			Port:        port.port,
+			Protocol:    shDesc,
+			Description: longDesc,
+			Status:      "open",
 		})
 
 	}
-	return descripedPorts
+	return describedPorts
 }
-func descripePort(port int, conf utility.ScanConfig) string {
-	description := "UNKNOWN"
+func descripePort(port Port, conf utility.ScanConfig) (string, string) {
+	short := "UNKNOWN"
+	longD := ""
 	for _, e := range conf.Ports {
-		if e.Port == port {
-			description = e.Desc
+		if e.Port == port.port {
+			short = e.Desc + " (" + port.protocol + ")"
+			longD = e.LongDesc
 		}
 	}
-	return description
+	return short, longD
 }
 
-// NewPortScanner hendler for scanner
+// NewPortScanner handler for scanner
 func newPortScanner(host string, timeout time.Duration, threads int) *PortScanner {
 	return &PortScanner{host, timeout, threads}
 }
 
 // IsOpen connect to ports
-func (h PortScanner) IsOpen(port int) bool {
-	tcpAddr, err := net.ResolveTCPAddr("tcp4", h.hostPort(port))
-	if err != nil {
-		return false
+func (h PortScanner) IsOpen(port Port) bool {
+	if port.protocol == "TCP" {
+		tcpAddr, err := net.ResolveTCPAddr("tcp4", h.hostPort(port.port))
+		if err != nil {
+			return false
+		}
+		conn, err := net.DialTimeout("tcp", tcpAddr.String(), h.timeout)
+		if err != nil {
+			return false
+		}
+		defer conn.Close()
+	} else if port.protocol == "UDP" {
+		udpAddr, err := net.ResolveUDPAddr("udp4", h.hostPort(port.port))
+		if err != nil {
+			return false
+		}
+		conn, err := net.DialTimeout("udp", udpAddr.String(), h.timeout)
+		if err != nil {
+			return false
+		}
+		defer conn.Close()
 	}
-	conn, err := net.DialTimeout("tcp", tcpAddr.String(), h.timeout)
-	if err != nil {
-		return false
-	}
-
-	defer conn.Close()
 
 	return true
 }
 
 // GetOpenedPort work with range of ports
-func (h PortScanner) getOpenedPort(portStart int, portEnds int) []int {
-	rv := []int{}
+func (h PortScanner) getOpenedPort(portRange []Port) []Port {
+	rv := []Port{}
 	l := sync.Mutex{}
 	sem := make(chan bool, h.threads)
-	for port := portStart; port <= portEnds; port++ {
+	for _, port := range portRange {
 		sem <- true
-		go func(port int) {
+		go func(port Port) {
 			if h.IsOpen(port) {
 				l.Lock()
 				rv = append(rv, port)

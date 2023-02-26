@@ -57,7 +57,6 @@ func tlsVersionCheck(url string, isVerbose bool, conf utility.ScanConfig) data.T
 			Id:          tls.VersionSSL30,
 		},
 	}
-
 	var wg sync.WaitGroup
 	var tlsData data.TlsData
 	threadCh := make(chan struct{}, conf.Threads)
@@ -132,7 +131,6 @@ func tlsAvailable(domain string) bool {
 }
 
 func TlsCheck(domain string, isVerbose bool, conf utility.ScanConfig) data.TlsData {
-
 	var wg sync.WaitGroup
 	l := sync.Mutex{}
 	wg.Add(3)

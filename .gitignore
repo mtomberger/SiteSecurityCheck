@@ -1,5 +1,5 @@
 # Binaries for programs and plugins
-*.exe
+/*.exe
 *.exe~
 *.dll
 *.so
@@ -14,4 +14,3 @@
 # Dependency directories (remove the comment below to include it)
 # vendor/
 .idea/
-out/

@@ -7,8 +7,7 @@ import (
 	"regexp"
 )
 
-var serverRegex, _ = regexp.Compile("^([A-Za-z]+)\\/?((\\*|\\d+(\\.\\d+){0,2}(\\.\\*)?))?")
-var versionRegex, _ = regexp.Compile("(\\*|\\d+(\\.\\d+){0,2}(\\.\\*)?)")
+var serverRegex, _ = regexp.Compile("^([A-Za-z\\.]+)\\/?\\s?((\\*|\\d+(\\.\\d+){0,2}(\\.\\*)?))?")
 
 func AnalyseServer(url string, isVerbose bool) data.WebserverData {
 	var webServerData data.WebserverData

@@ -9,6 +9,5 @@ type CmsData struct {
 	CmsFound      bool
 }
 type CmsPlugin struct {
-	Name    string
-	Version string
+	Name string
 }

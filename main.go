@@ -43,6 +43,7 @@ func main() {
 		out.Print("%s is not a valid url: " + err.Error())
 		return
 	}
+
 	domain := url.Hostname()
 	//get config
 	config := utility.GetConfiguration(configFile)
@@ -61,31 +62,48 @@ func main() {
 	}
 	//print header of output
 	out.PrintScanTitle(websiteURL, format)
+	//test connection
+	s := out.CreateStatus("Testing connection", false)
+	if !scan.TestConnection(websiteURL, domain) {
+		out.Print(out.ColorText("Url not reachable: %s", "red", websiteURL))
+		s.Finish()
+		return
+	}
+	s.Finish()
 	//start scanning
 	var wg sync.WaitGroup
 	var isCloudflare bool
 	//scan part 1
 	wg.Add(3)
+	tlsBar := out.CreateStatus("Check TLS", true)
 	go func() {
 		defer wg.Done()
 		res.Tls = scan.TlsCheck(domain, isVerbose, config)
+		tlsBar.Finish()
 	}()
+	locationBar := out.CreateStatus("Getting Server Location", true)
 	go func() {
 		defer wg.Done()
 		res.Miscellaneous = scan.FillHostInformation(domain, locationApiKey)
+		locationBar.Finish()
 	}()
+	cfBar := out.CreateStatus("Check for Cloudflare", true)
 	go func() {
 		defer wg.Done()
 		isCloudflare = scan.IsCloudflare(domain, config)
+		cfBar.Finish()
 	}()
 	if !res.Miscellaneous.UseCloudflare {
 		wg.Add(1)
+		portsBar := out.CreateStatus("Executing Portscan", true)
 		go func() {
 			defer wg.Done()
 			res.Ports = scan.StartPortScan(domain, config)
+			portsBar.Finish()
 		}()
 	}
 	wg.Wait()
+
 	//set and rewrite values from scan part 1
 	res.Miscellaneous.UseCloudflare = isCloudflare
 	if !res.Tls.HttpsAvailable && strings.HasPrefix(websiteURL, "https://") {
@@ -93,22 +111,29 @@ func main() {
 	}
 	//scan part 2
 	wg.Add(3)
+	headerBar := out.CreateStatus("Analysing HTTP Headers", true)
 	go func() {
 		defer wg.Done()
 		res.Headers = scan.AnalyzeHeaders(websiteURL, isVerbose)
+		headerBar.Finish()
 	}()
+	serverBar := out.CreateStatus("Analysing Server Properties", true)
 	go func() {
 		defer wg.Done()
 		res.Server = scan.AnalyseServer(websiteURL, isVerbose)
+		serverBar.Finish()
 	}()
+	cmsBar := out.CreateStatus("Analysing Content Management System Properties", true)
 	go func() {
 		defer wg.Done()
 		res.Cms = scan.AnalyseCms(websiteURL, isVerbose, config)
+		cmsBar.Finish()
 	}()
 	wg.Wait()
+	vulBar := out.CreateStatus("Getting Vulnerabilities", false)
 	//get Vulnerabilities from db
 	res.Vulnerabilities = scan.GetVulnerabilities(res, cveApiKey, cveLimit)
-
+	vulBar.Finish()
 	//output result
 	out.PrintResult(res, config, format)
 

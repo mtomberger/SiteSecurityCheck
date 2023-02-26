@@ -6,15 +6,26 @@ import (
 )
 
 type ScanConfig struct {
-	Threads        int `json:"threads"`
-	TimeoutSeconds int `json:"timeoutSeconds"`
-	PortRangeStart int `json:"portRangeStart"`
-	PortRangeStop  int `json:"portRangeStop"`
-	Ports          []struct {
-		Desc string `json:"desc"`
-		Port int    `json:"port"`
-	} `json:"ports"`
-	CloudflareIps []string `json:"cloudflareIps"`
+	Threads        int      `json:"threads"`
+	TimeoutSeconds int      `json:"timeoutSeconds"`
+	PortRangeTCP   string   `json:"portRangeTCP"`
+	PortRangeUDP   string   `json:"portRangeUDP"`
+	Cms            []Cms    `json:"cms"`
+	Ports          []Port   `json:"ports"`
+	CloudflareIps  []string `json:"cloudflareIps"`
+}
+type Cms struct {
+	Name        string   `json:"name"`
+	SearchRegex []string `json:"searchRegex"`
+	Urls        []string `json:"urls"`
+	PluginRegex string   `json:"pluginRegex"`
+	IsReady     bool     `json:"-"`
+}
+type Port struct {
+	Desc     string `json:"desc"`
+	Port     int    `json:"port"`
+	LongDesc string `json:"longDesc,omitempty"`
+	Protocol string `json:"protocol"`
 }
 
 func GetConfiguration(path string) ScanConfig {
