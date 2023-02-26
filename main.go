@@ -62,6 +62,7 @@ func main() {
 	}
 	//print header of output
 	out.PrintScanTitle(websiteURL, format)
+	return
 	//test connection
 	s := out.CreateStatus("Testing connection", false)
 	if !scan.TestConnection(websiteURL, domain) {

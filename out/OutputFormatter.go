@@ -55,15 +55,14 @@ func PrintScanTitle(url string, representation Format) {
 		return
 	}
 	Print("\n")
-	Print(ColorText("  __ _ _         __                      _ _             ___ _               _    ", "yellow"))
-	Print(ColorText(" / _(_) |_ ___  / _\\ ___  ___ _   _ _ __(_) |_ _   _    / __\\ |__   ___  ___| | __", "yellow"))
-	Print(ColorText(" \\ \\| | __/ _ \\ \\ \\ / _ \\/ __| | | | '__| | __| | | |  / /  | '_ \\ / _ \\/ __| |/ /", "yellow"))
-	Print(ColorText(" _\\ \\ | ||  __/ _\\ \\  __/ (__| |_| | |  | | |_| |_| | / /___| | | |  __/ (__|   < ", "yellow"))
-	Print(ColorText(" \\__/_|\\__\\___| \\__/\\___|\\___|\\__,_|_|  |_|\\__|\\__, | \\____/|_| |_|\\___|\\___|_|\\_\\", "yellow"))
-	Print(ColorText("                                               |___/                              ", "yellow"))
-	Print(ColorText(" ---------------------------------------------------------------------------------", "green"))
-	Print(ColorText(" Website Security Check      |      Created by mtomberger      |      License: MIT", "green"))
-	Print(ColorText(" ---------------------------------------------------------------------------------", "green"))
+	Print(ColorText("     __ _ _       __             ___ _               _    ", "yellow"))
+	Print(ColorText("    / _(_) |_ ___/ _\\ ___  ___  / __\\ |__   ___  ___| | __", "yellow"))
+	Print(ColorText("    \\ \\| | __/ _ \\ \\ / _ \\/ __|/ /  | '_ \\ / _ \\/ __| |/ /", "yellow"))
+	Print(ColorText("    _\\ \\ | ||  __/\\ \\  __/ (__/ /___| | | |  __/ (__|   < ", "yellow"))
+	Print(ColorText("    \\__/_|\\__\\___\\__/\\___|\\___\\____/|_| |_|\\___|\\___|_|\\_\\", "yellow"))
+	Print(ColorText(" -------------------------------------------------------------", "green"))
+	Print(ColorText(" Website Security Check | Created by mtomberger | License: MIT", "green"))
+	Print(ColorText(" -------------------------------------------------------------", "green"))
 	Print(" \n%s%s%s\n", ColorText("Scanning website '", "yellow"), ColorText(url, "green"), ColorText("'...", "yellow"))
 }
 
