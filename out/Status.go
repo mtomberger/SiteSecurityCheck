@@ -11,7 +11,7 @@ type Status struct {
 }
 
 func CreateStatus(title string, async bool, format Format) Status {
-	if format == "json" {
+	if format != JsonFormat {
 		if async {
 			Print("  %s...", title)
 		} else {
@@ -27,7 +27,7 @@ func CreateStatus(title string, async bool, format Format) Status {
 }
 func (s *Status) Finish() {
 	s.end = time.Now()
-	if s.format == "json" {
+	if s.format == JsonFormat {
 		return
 	}
 	if s.async {
