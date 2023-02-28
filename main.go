@@ -97,6 +97,15 @@ func main() {
 		isCloudflare = scan.IsCloudflare(domain, config)
 		cfBar.Finish()
 	}()
+	wg.Wait()
+	res.Miscellaneous.UseCloudflare = isCloudflare
+	//set and rewrite values from scan part 1
+
+	if !res.Tls.HttpsAvailable && strings.HasPrefix(websiteURL, "https://") {
+		websiteURL = strings.Replace(websiteURL, "https://", "http://", 1)
+	}
+	//scan part 2
+	wg.Add(3)
 	if !res.Miscellaneous.UseCloudflare {
 		wg.Add(1)
 		portsBar := out.CreateStatus("Executing Portscan", true, format)
@@ -106,15 +115,6 @@ func main() {
 			portsBar.Finish()
 		}()
 	}
-	wg.Wait()
-
-	//set and rewrite values from scan part 1
-	res.Miscellaneous.UseCloudflare = isCloudflare
-	if !res.Tls.HttpsAvailable && strings.HasPrefix(websiteURL, "https://") {
-		websiteURL = strings.Replace(websiteURL, "https://", "http://", 1)
-	}
-	//scan part 2
-	wg.Add(3)
 	headerBar := out.CreateStatus("Analysing HTTP Headers", true, format)
 	go func() {
 		defer wg.Done()
@@ -142,5 +142,3 @@ func main() {
 	out.PrintResult(res, config, format)
 
 }
-
-//-u http://alfright.eu -v -f human -loc 0H1TFS9ACE2 -cve 0fc5074cb7f09126ea37257c7ad967210 -cveL 10

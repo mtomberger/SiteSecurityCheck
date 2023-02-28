@@ -44,7 +44,7 @@ func GetVulnerabilities(result data.ScanResult, apiKey string, limit int) []data
 		wg.Add(1)
 		go func() {
 			defer wg.Done()
-			vulns := getVulnerabilitiesForProduct("php", vers, apiKey, limit)
+			vulns := getVulnerabilitiesForProduct(result.Server.TechnologyName, vers, apiKey, limit)
 			l.Lock()
 			vulnerabilities = append(vulnerabilities, vulns...)
 			l.Unlock()

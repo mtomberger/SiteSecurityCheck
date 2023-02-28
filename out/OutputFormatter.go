@@ -75,11 +75,10 @@ func printJson(result data.ScanResult) {
 	Print(string(json))
 }
 func printHumanReadable(result data.ScanResult, conf utility.ScanConfig) {
-	Print("\n")
 	printHumanReadableTls(result.Tls)
 	printHumanReadableHeaders(result.Headers)
 	printHumanReadableServer(result.Server)
-	printHumanReadableCms(result.Cms, conf) //TODO implement
+	printHumanReadableCms(result.Cms, conf)
 	printHumanReadableMisc(result.Miscellaneous)
 	printHumanReadablePortScan(result.Ports, conf)
 	printHumanReadableVulnerabilities(result.Vulnerabilities)
